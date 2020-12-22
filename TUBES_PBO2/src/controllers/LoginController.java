@@ -21,19 +21,25 @@ public class LoginController {
     public void btnSignin(ActionEvent actionEvent) {
         String user= txtUsername.getText();
         String pass = txtPassword.getText();
+        txtUsername.setText("");
+        txtPassword.setText("");
         UserEntity u = new UserEntity();
         u.setUsername(user);
         u.setPassword(pass);
+        boolean temp=false;
         UserDao udao=new UserDao();
-        boolean temp=udao.searchData(u);
+        temp=udao.searchData(u);
+        int id=u.getIdpengguna();
+        System.out.println(id);
+        System.out.println(temp);
         if (user.equals("")||pass.equals("")){
             JOptionPane.showMessageDialog(null,"Please fill Username and password");
         }
         else{
-            if(temp=true){
+            if(temp==true ){
                 System.out.println("Login Success");
-                txtUsername.setText("");
-                txtPassword.setText("");
+                id=u.getIdpengguna();
+                System.out.println(id);
             }
             else{
                 lblErrors.setText("Invalid username or password");

@@ -27,22 +27,33 @@ public class UserDao implements daoInterface <UserEntity> {
 
     @Override
     public boolean searchData(UserEntity data) {
-        ObservableList<UserEntity> mList = FXCollections.observableArrayList();
         Boolean temp = false;
         try {
-            String query = "SELECT * FROM user Where username=? or password=?";
+            String query = "SELECT * FROM user Where username=? and password=?";
             
             PreparedStatement ps;
             ps = JDBCConnection.getConnection().prepareStatement(query);
             ps.setString(1,data.getUsername());
             ps.setString(2,data.getPassword());
             ResultSet res= ps.executeQuery();
-           
-            if(res.next()) {
-                temp=true;
+            int id = 0;
+            UserEntity c = new UserEntity();
+            if (res.next()){
+                String user = res.getString("username");
+                String pass = res.getString("password");
+                id += res.getInt("idpengguna");
+                c.setIdpengguna(id);
+                c.setUsername(user);
+                c.setPassword(pass);
+            }
+
+            if(id==0) {
+                temp=false;
+
             }
             else{
-                temp=false;
+                temp=true;
+
             }
         }
         catch (SQLException ex){
