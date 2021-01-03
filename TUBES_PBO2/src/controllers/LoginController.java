@@ -4,12 +4,18 @@ import DAO.UserDao;
 import Model.UserEntity;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import sun.security.provider.MD5;
 
 import javax.swing.*;
+import java.io.IOException;
 
 public class LoginController {
 
@@ -18,7 +24,7 @@ public class LoginController {
     public TextField txtUsername;
     public Label lblErrors;
 
-    public void btnSignin(ActionEvent actionEvent) {
+    public void btnSignin(ActionEvent actionEvent) throws IOException {
         String user= txtUsername.getText();
         String pass = txtPassword.getText();
         txtUsername.setText("");
@@ -40,6 +46,17 @@ public class LoginController {
                 System.out.println("Login Success");
                 id=u.getIdpengguna();
                 System.out.println(id);
+                Stage new_stage = new Stage();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/sample.fxml"));
+                Parent root = loader.load();
+                MainController controler = loader.getController();
+                controler.setmain(this);
+                Scene scene1 = new Scene(root);
+
+                new_stage.setScene(scene1);
+                new_stage.initModality(Modality.WINDOW_MODAL);
+                new_stage.setTitle("Add Matchers Dialog");
+                new_stage.showAndWait();
             }
             else{
                 lblErrors.setText("Invalid username or password");

@@ -1,5 +1,6 @@
 package controllers;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -13,6 +14,11 @@ public class MainController {
     public ComboBox cmbMonster2;
     public Label lblHp3;
     public ComboBox cmbMonster3;
+    private LoginController main;
+
+    public void setmain(LoginController main) {
+        this.main = main;
+    }
 
 
     public void comboAction1(ActionEvent actionEvent) {
