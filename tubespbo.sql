@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Des 2020 pada 08.52
+-- Waktu pembuatan: 03 Jan 2021 pada 04.36
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.5
 
@@ -20,6 +20,53 @@ SET time_zone = "+00:00";
 --
 -- Database: `tubespbo`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `elements`
+--
+
+CREATE TABLE `elements` (
+  `Id` int(11) NOT NULL,
+  `Name` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `elements`
+--
+
+INSERT INTO `elements` (`Id`, `Name`) VALUES
+(1, 'Ice'),
+(2, 'Fire'),
+(3, 'Wind'),
+(4, 'Earth'),
+(5, 'Lightning'),
+(6, 'Water');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `monsters`
+--
+
+CREATE TABLE `monsters` (
+  `Id` int(11) NOT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  `HP` int(11) DEFAULT NULL,
+  `Attack` int(11) DEFAULT NULL,
+  `Elements_Id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `monsters`
+--
+
+INSERT INTO `monsters` (`Id`, `Name`, `HP`, `Attack`, `Elements_Id`) VALUES
+(1, 'Curacas', 100, 5, 1),
+(2, 'Firagas', 100, 10, 2),
+(3, 'Bouldar', 1000, 3, 4),
+(4, 'Vipara', 200, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -47,6 +94,19 @@ INSERT INTO `user` (`idpengguna`, `Nama`, `username`, `password`) VALUES
 --
 
 --
+-- Indeks untuk tabel `elements`
+--
+ALTER TABLE `elements`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indeks untuk tabel `monsters`
+--
+ALTER TABLE `monsters`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `fk_Monsters_Elements_idx` (`Elements_Id`);
+
+--
 -- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
@@ -57,10 +117,32 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `elements`
+--
+ALTER TABLE `elements`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT untuk tabel `monsters`
+--
+ALTER TABLE `monsters`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `idpengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `monsters`
+--
+ALTER TABLE `monsters`
+  ADD CONSTRAINT `fk_Monsters_Elements` FOREIGN KEY (`Elements_Id`) REFERENCES `elements` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
