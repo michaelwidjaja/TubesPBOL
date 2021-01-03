@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Jan 2021 pada 04.36
+-- Waktu pembuatan: 03 Jan 2021 pada 05.06
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.5
 
@@ -32,18 +32,6 @@ CREATE TABLE `elements` (
   `Name` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data untuk tabel `elements`
---
-
-INSERT INTO `elements` (`Id`, `Name`) VALUES
-(1, 'Ice'),
-(2, 'Fire'),
-(3, 'Wind'),
-(4, 'Earth'),
-(5, 'Lightning'),
-(6, 'Water');
-
 -- --------------------------------------------------------
 
 --
@@ -55,18 +43,9 @@ CREATE TABLE `monsters` (
   `Name` varchar(45) DEFAULT NULL,
   `HP` int(11) DEFAULT NULL,
   `Attack` int(11) DEFAULT NULL,
-  `Elements_Id` int(11) NOT NULL
+  `Elements_Id` int(11) NOT NULL,
+  `User_idpengguna` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data untuk tabel `monsters`
---
-
-INSERT INTO `monsters` (`Id`, `Name`, `HP`, `Attack`, `Elements_Id`) VALUES
-(1, 'Curacas', 100, 5, 1),
-(2, 'Firagas', 100, 10, 2),
-(3, 'Bouldar', 1000, 3, 4),
-(4, 'Vipara', 200, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -80,14 +59,6 @@ CREATE TABLE `user` (
   `username` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data untuk tabel `user`
---
-
-INSERT INTO `user` (`idpengguna`, `Nama`, `username`, `password`) VALUES
-(1, 'Admin', 'Admin', 'Admin'),
-(2, 'Andika', 'dika', 'ukm123');
 
 --
 -- Indexes for dumped tables
@@ -104,7 +75,8 @@ ALTER TABLE `elements`
 --
 ALTER TABLE `monsters`
   ADD PRIMARY KEY (`Id`),
-  ADD KEY `fk_Monsters_Elements_idx` (`Elements_Id`);
+  ADD KEY `fk_Monsters_Elements_idx` (`Elements_Id`),
+  ADD KEY `fk_user_idpengguna_idx` (`User_idpengguna`);
 
 --
 -- Indeks untuk tabel `user`
@@ -142,7 +114,8 @@ ALTER TABLE `user`
 -- Ketidakleluasaan untuk tabel `monsters`
 --
 ALTER TABLE `monsters`
-  ADD CONSTRAINT `fk_Monsters_Elements` FOREIGN KEY (`Elements_Id`) REFERENCES `elements` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Monsters_Elements` FOREIGN KEY (`Elements_Id`) REFERENCES `elements` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_user_idpengguna` FOREIGN KEY (`User_idpengguna`) REFERENCES `user` (`idpengguna`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
