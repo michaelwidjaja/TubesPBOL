@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Jan 2021 pada 05.06
+-- Waktu pembuatan: 03 Jan 2021 pada 05.32
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.5
 
@@ -32,6 +32,18 @@ CREATE TABLE `elements` (
   `Name` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data untuk tabel `elements`
+--
+
+INSERT INTO `elements` (`Id`, `Name`) VALUES
+(1, 'Ice'),
+(2, 'Fire'),
+(3, 'Wind'),
+(4, 'Earth'),
+(5, 'Lightning'),
+(6, 'Water');
+
 -- --------------------------------------------------------
 
 --
@@ -43,9 +55,20 @@ CREATE TABLE `monsters` (
   `Name` varchar(45) DEFAULT NULL,
   `HP` int(11) DEFAULT NULL,
   `Attack` int(11) DEFAULT NULL,
+  `Accuracy` int(11) NOT NULL,
   `Elements_Id` int(11) NOT NULL,
   `User_idpengguna` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `monsters`
+--
+
+INSERT INTO `monsters` (`Id`, `Name`, `HP`, `Attack`, `Accuracy`, `Elements_Id`, `User_idpengguna`) VALUES
+(1, 'Curacas', 100, 5, 40, 1, 1),
+(2, 'Firagas', 100, 10, 30, 2, 1),
+(3, 'Bouldar', 1000, 3, 60, 4, 2),
+(4, 'Vipara', 200, 2, 80, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -59,6 +82,14 @@ CREATE TABLE `user` (
   `username` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`idpengguna`, `Nama`, `username`, `password`) VALUES
+(1, 'Admin', 'Admin', 'Admin'),
+(2, 'Andika', 'dika', 'ukm123');
 
 --
 -- Indexes for dumped tables
