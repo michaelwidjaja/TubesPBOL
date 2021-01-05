@@ -39,11 +39,12 @@ public class LoginController {
         UserDao udao=new UserDao();
         UserEntity user1=udao.Login(u);
 
-
         System.out.println(user1.getIdpengguna());
         System.out.println(user1.getNama());
         iduser=user1.getIdpengguna();
         System.out.println(iduser);
+        Monster m =new Monster();
+        m.setUser_idpengguna(iduser);
         if (user.equals("")||pass.equals("")){
             JOptionPane.showMessageDialog(null,"Please fill Username and password");
         }
@@ -52,8 +53,6 @@ public class LoginController {
                 Stage stage = (Stage) signin.getScene().getWindow();
                 stage.close();
                 System.out.println("Login Success");
-                iduser=u.getIdpengguna();
-                System.out.println(iduser);
                 Stage new_stage = new Stage();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/sample.fxml"));
                 Parent root = loader.load();

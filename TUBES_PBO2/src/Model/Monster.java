@@ -9,6 +9,15 @@ public class Monster {
     private int att;
     private int acc;
     private int element;
+    private int User_idpengguna;
+
+    public int getUser_idpengguna() {
+        return User_idpengguna;
+    }
+
+    public void setUser_idpengguna(int user_idpengguna) {
+        User_idpengguna = user_idpengguna;
+    }
 
     public String getNamaelement() {
         return namaelement;

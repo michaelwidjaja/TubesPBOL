@@ -31,7 +31,9 @@ public class MainController implements Initializable {
     public void setmain(LoginController main) {
         this.main = main;
         MonsterDao mDao = new MonsterDao();
-        ObservableList<Monster> mList = (ObservableList<Monster>) mDao.showData();
+        Monster m =new Monster();
+        m.setUser_idpengguna(main.iduser);
+        ObservableList<Monster> mList = (ObservableList<Monster>) mDao.showDataselect(m);
         cmbMonster1.setItems(mList);
         cmbMonster2.setItems(mList);
         cmbMonster3.setItems(mList);
