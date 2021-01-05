@@ -27,9 +27,10 @@ public class MonsterDao implements daoInterface<Monster>{
     }
 
     @Override
-    public boolean searchData(Monster data) {
-        return false;
+    public List<Monster> searchData(Monster data) {
+        return null;
     }
+
 
     @Override
     public List<Monster> showData() {

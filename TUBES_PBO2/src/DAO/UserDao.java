@@ -42,40 +42,8 @@ public class UserDao implements daoInterface <UserEntity> {
     }
 
     @Override
-    public boolean searchData(UserEntity data) {
-        Boolean temp = false;
-        try {
-            String query = "SELECT * FROM user Where username=? and password=?";
-            
-            PreparedStatement ps;
-            ps = JDBCConnection.getConnection().prepareStatement(query);
-            ps.setString(1,data.getUsername());
-            ps.setString(2,data.getPassword());
-            ResultSet res= ps.executeQuery();
-            int id = 0;
-            UserEntity c = new UserEntity();
-            if (res.next()){
-                String user = res.getString("username");
-                String pass = res.getString("password");
-                id += res.getInt("idpengguna");
-                c.setIdpengguna(id);
-                c.setUsername(user);
-                c.setPassword(pass);
-            }
-
-            if(id==0) {
-                temp=false;
-
-            }
-            else{
-                temp=true;
-
-            }
-        }
-        catch (SQLException ex){
-            System.out.println(ex.getMessage());
-        }
-        return temp;
+    public List searchData(UserEntity data) {
+        return null;
     }
 
 
@@ -101,5 +69,35 @@ public class UserDao implements daoInterface <UserEntity> {
             System.out.println(ex.getMessage());
         }
         return uList;
+    }
+
+    public UserEntity Login(UserEntity data){
+        UserEntity u = new UserEntity();
+
+        try {
+            String query = "SELECT * FROM user Where username=? and password=?";
+
+            PreparedStatement ps;
+            ps = JDBCConnection.getConnection().prepareStatement(query);
+            ps.setString(1,data.getUsername());
+            ps.setString(2,data.getPassword());
+            ResultSet res= ps.executeQuery();
+            while (res.next()){
+                int id = res.getInt("idpengguna");
+                String nama = res.getString("nama");
+                String username = res.getString("username");
+                String password = res.getString("password");
+
+                u.setIdpengguna(id);
+                u.setNama(nama);
+                u.setUsername(username);
+                u.setPassword(password);
+
+            }
+        }
+        catch (SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+        return u;
     }
 }

@@ -1,6 +1,7 @@
 package controllers;
 
 import DAO.UserDao;
+import Model.Monster;
 import Model.UserEntity;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,6 +26,7 @@ public class LoginController {
     public TextField txtUsername;
     public Label lblErrors;
     public Button signin;
+    public int iduser;
 
     public void btnSignin(ActionEvent actionEvent) throws IOException {
         String user= txtUsername.getText();
@@ -34,22 +36,24 @@ public class LoginController {
         UserEntity u = new UserEntity();
         u.setUsername(user);
         u.setPassword(pass);
-        boolean temp=false;
         UserDao udao=new UserDao();
-        temp=udao.searchData(u);
-        int id=u.getIdpengguna();
-        System.out.println(id);
-        System.out.println(temp);
+        UserEntity user1=udao.Login(u);
+
+
+        System.out.println(user1.getIdpengguna());
+        System.out.println(user1.getNama());
+        iduser=user1.getIdpengguna();
+        System.out.println(iduser);
         if (user.equals("")||pass.equals("")){
             JOptionPane.showMessageDialog(null,"Please fill Username and password");
         }
         else{
-            if(temp==true ){
+            if(iduser!=0 ){
                 Stage stage = (Stage) signin.getScene().getWindow();
                 stage.close();
                 System.out.println("Login Success");
-                id=u.getIdpengguna();
-                System.out.println(id);
+                iduser=u.getIdpengguna();
+                System.out.println(iduser);
                 Stage new_stage = new Stage();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/sample.fxml"));
                 Parent root = loader.load();
