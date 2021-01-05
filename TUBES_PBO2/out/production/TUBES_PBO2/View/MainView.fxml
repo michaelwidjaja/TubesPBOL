@@ -28,7 +28,7 @@
                         <Font name="Segoe UI" size="10.0" />
                     </font>
                 </Label>
-                <Button layoutX="4.0" layoutY="135.0" mnemonicParsing="false" onAction="#btnSignin" prefHeight="34.0" prefWidth="275.0" stylesheets="@../styling/fullpackstyling.css" text="Sign in" />
+                <Button fx:id="signin" layoutX="4.0" layoutY="135.0" mnemonicParsing="false" onAction="#btnSignin" prefHeight="34.0" prefWidth="275.0" stylesheets="@../styling/fullpackstyling.css" text="Sign in" />
             </children>
         </Pane>
       <Label layoutX="428.0" layoutY="21.0" prefHeight="50.0" prefWidth="124.0" text="Log In" textOverrun="CENTER_ELLIPSIS">

@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -23,6 +24,7 @@ public class LoginController {
     public PasswordField txtPassword;
     public TextField txtUsername;
     public Label lblErrors;
+    public Button signin;
 
     public void btnSignin(ActionEvent actionEvent) throws IOException {
         String user= txtUsername.getText();
@@ -43,6 +45,8 @@ public class LoginController {
         }
         else{
             if(temp==true ){
+                Stage stage = (Stage) signin.getScene().getWindow();
+                stage.close();
                 System.out.println("Login Success");
                 id=u.getIdpengguna();
                 System.out.println(id);
