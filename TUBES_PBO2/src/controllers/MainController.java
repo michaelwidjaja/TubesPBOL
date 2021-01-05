@@ -1,5 +1,7 @@
 package controllers;
 
+import DAO.MonsterDao;
+import Model.Monster;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ComboBox;
@@ -18,8 +20,12 @@ public class MainController {
 
     public void setmain(LoginController main) {
         this.main = main;
+        MonsterDao mDao = new MonsterDao();
+        ObservableList<Monster> mList = (ObservableList<Monster>) mDao.showData();
+        cmbMonster1.setItems(mList);
+        cmbMonster2.setItems(mList);
+        cmbMonster3.setItems(mList);
     }
-
 
     public void comboAction1(ActionEvent actionEvent) {
     }
