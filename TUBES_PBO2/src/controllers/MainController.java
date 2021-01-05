@@ -65,7 +65,7 @@ public class MainController implements Initializable {
         dialog.setTitle("Add new element");
         dialog.setHeaderText("Confirmation");
         dialog.setContentText("Element baru:");
-        Optional<String> result = dialog.showAndWait();
+        String result = String.valueOf(dialog.showAndWait());
         Elemen e = new Elemen();
         e.setName(String.valueOf(result));
         ElemenDao elemenDao = new ElemenDao();
