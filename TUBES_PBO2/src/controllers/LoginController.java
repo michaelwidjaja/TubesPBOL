@@ -58,7 +58,6 @@ public class LoginController {
                 Scene scene1 = new Scene(root);
 
                 new_stage.setScene(scene1);
-                new_stage.initModality(Modality.WINDOW_MODAL);
                 new_stage.setTitle("Add Matchers Dialog");
                 new_stage.showAndWait();
             }
@@ -68,6 +67,17 @@ public class LoginController {
         }
 
     }
-    public void btnSignup(ActionEvent actionEvent) {
+    public void btnSignup(ActionEvent actionEvent) throws IOException {
+        Stage new_stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/signup.fxml"));
+        Parent root = loader.load();
+        SignUpController controler = loader.getController();
+        controler.setmain(this);
+        Scene scene1 = new Scene(root);
+
+        new_stage.setScene(scene1);
+        new_stage.setTitle("Sign Up Dialog");
+        new_stage.showAndWait();
+
     }
 }

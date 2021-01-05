@@ -12,16 +12,32 @@ import java.util.List;
 public class UserDao implements daoInterface <UserEntity> {
     @Override
     public int addData(UserEntity data) {
-        return 0;
+        int result = 0;
+        try {
+            String query = "INSERT INTO user(nama, username, password) values(?, ?, ?);";
+            PreparedStatement ps;
+            ps = JDBCConnection.getConnection().prepareStatement(query);
+            ps.setString(1,data.getNama());
+            ps.setString(2,data.getUsername());
+            ps.setString(3,data.getPassword());
+            result = ps.executeUpdate();
+        }
+        catch (SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+        return result;
     }
+
 
     @Override
     public int delData(UserEntity data) {
+
         return 0;
     }
 
     @Override
     public int updateData(UserEntity data) {
+
         return 0;
     }
 
