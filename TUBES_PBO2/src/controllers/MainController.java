@@ -1,14 +1,24 @@
 package controllers;
 
+import DAO.ElemenDao;
 import DAO.MonsterDao;
+import Model.Elemen;
 import Model.Monster;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
-public class MainController {
+import java.net.URL;
+import java.util.Optional;
+import java.util.ResourceBundle;
+
+public class MainController implements Initializable {
     public GridPane mainMonster;
     public Label lblHp1;
     public ComboBox cmbMonster1;
@@ -49,6 +59,15 @@ public class MainController {
     }
 
     public void addElement(ActionEvent actionEvent) {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("Add new element");
+        dialog.setHeaderText("Confirmation");
+        dialog.setContentText("Element baru:");
+        Optional<String> result = dialog.showAndWait();
+        Elemen e = new Elemen();
+        e.setName(String.valueOf(result));
+        ElemenDao elemenDao = new ElemenDao();
+        elemenDao.addData(e);
     }
 
     public void comboAction3(ActionEvent actionEvent) {
@@ -59,4 +78,12 @@ public class MainController {
 
     public void cmbMonster3(ActionEvent actionEvent) {
     }
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
+
+
 }

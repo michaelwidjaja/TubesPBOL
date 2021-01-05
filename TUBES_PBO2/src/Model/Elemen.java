@@ -1,5 +1,3 @@
-//Nama:Weddy Alvino
-//NRP:1872063
 package Model;
 
 public class Elemen {

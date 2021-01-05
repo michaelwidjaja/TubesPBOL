@@ -10,24 +10,34 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class ElemenDao implements daoInterface {
+public class ElemenDao implements daoInterface<Elemen> {
+    public int addData(Elemen data) {
+        int result = 0;
+        try {
+            String query = "INSERT INTO elements(name) values(?);";
+            PreparedStatement ps;
+            ps = JDBCConnection.getConnection().prepareStatement(query);
+            ps.setString(1,data.getName());
+            result = ps.executeUpdate();
+        }
+        catch (SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+        return result;
+    }
+
     @Override
-    public int addData(Object data) {
+    public int delData(Elemen data) {
         return 0;
     }
 
     @Override
-    public int delData(Object data) {
+    public int updateData(Elemen data) {
         return 0;
     }
 
     @Override
-    public int updateData(Object data) {
-        return 0;
-    }
-
-    @Override
-    public boolean searchData(Object data) {
+    public boolean searchData(Elemen data) {
         return false;
     }
 
