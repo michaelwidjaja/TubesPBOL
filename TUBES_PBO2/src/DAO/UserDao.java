@@ -41,11 +41,6 @@ public class UserDao implements daoInterface <UserEntity> {
         return 0;
     }
 
-    @Override
-    public List searchData(UserEntity data) {
-        return null;
-    }
-
 
     @Override
     public List<UserEntity> showData() {

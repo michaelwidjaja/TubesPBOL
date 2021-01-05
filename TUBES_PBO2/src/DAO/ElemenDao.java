@@ -36,10 +36,7 @@ public class ElemenDao implements daoInterface<Elemen> {
         return 0;
     }
 
-    @Override
-    public boolean searchData(Elemen data) {
-        return false;
-    }
+
 
     @Override
     public List showData() {

@@ -27,12 +27,6 @@ public class MonsterDao implements daoInterface<Monster>{
     }
 
     @Override
-    public List<Monster> searchData(Monster data) {
-        return null;
-    }
-
-
-    @Override
     public List<Monster> showData() {
         ObservableList<Monster> mList = FXCollections.observableArrayList();
 
