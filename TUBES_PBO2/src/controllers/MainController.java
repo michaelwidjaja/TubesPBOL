@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -57,7 +58,17 @@ public class MainController implements Initializable {
     public void fightAction2(ActionEvent actionEvent) {
     }
 
-    public void addNewMonster(ActionEvent actionEvent) {
+    public void addNewMonster(ActionEvent actionEvent) throws IOException {
+        Stage new_stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/addMonster.fxml"));
+        Parent root = loader.load();
+        AddMonsterController controler = loader.getController();
+        controler.setmain(this);
+        Scene scene1 = new Scene(root);
+
+        new_stage.setScene(scene1);
+        new_stage.setTitle("Add Monster Baru");
+        new_stage.showAndWait();
     }
 
     public void addElement(ActionEvent actionEvent) {
