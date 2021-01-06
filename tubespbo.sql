@@ -64,11 +64,11 @@ CREATE TABLE `monsters` (
 -- Dumping data untuk tabel `monsters`
 --
 
-INSERT INTO `monsters` (`Id`, `Name`, `HP`, `Attack`, `Accuracy`, `Elements_Id`, `User_idpengguna`) VALUES
-(1, 'Curacas', 100, 5, 40, 1, 1),
-(2, 'Firagas', 100, 10, 30, 2, 1),
-(3, 'Bouldar', 1000, 3, 60, 4, 2),
-(4, 'Vipara', 200, 2, 80, 3, 2);
+INSERT INTO `monsters` (`Id`, `Name`, `HP`, `Attack`, `Elements_Id`, `User_idpengguna`) VALUES
+(1, 'Curacas', 100, 5,  1, 1),
+(2, 'Firagas', 100, 10, 2, 1),
+(3, 'Bouldar', 1000, 3, 4, 2),
+(4, 'Vipara', 200, 2, 3, 2);
 
 -- --------------------------------------------------------
 
