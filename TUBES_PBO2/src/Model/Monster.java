@@ -27,6 +27,10 @@ public class Monster {
         this.namaelement = namaelement;
     }
 
+    public void kenaSerang(int n){
+        this.hp -= n;
+    }
+
 
 
     @Override

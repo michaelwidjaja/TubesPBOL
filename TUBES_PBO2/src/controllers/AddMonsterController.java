@@ -32,8 +32,8 @@ public class AddMonsterController {
     public void addMonsterBaru(ActionEvent actionEvent) {
         Monster m = new Monster();
         m.setName(txtNamaMonsterBaru.getText());
-        m.setHp((int)Math.floor(Math.random() * 3000) + 1000);
-        m.setAtt((int)Math.floor(Math.random() * 3000) + 1000);
+        m.setHp((int)Math.floor(Math.random() * 300) + 100);
+        m.setAtt((int)Math.floor(Math.random() * 70) + 5);
         m.setUser_idpengguna(id);
         m.setElement(cmbElemenBaru.getValue().getId());
         System.out.println(m.getElement());

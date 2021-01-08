@@ -56,4 +56,8 @@ public class Enemy {
     public void setNamaelement(String namaelement) {
         this.namaelement = namaelement;
     }
+
+    public void kenaSerang(int n){
+        this.HP -= n;
+    }
 }

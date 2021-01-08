@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
@@ -33,6 +34,12 @@ public class MainController implements Initializable {
     public ComboBox cmbMonster3;
     private LoginController main;
     public int id;
+    private Monster monster1;
+    private Monster monster2;
+    private Monster monster3;
+    private Enemy enemy1;
+    private Enemy enemy2;
+    private Enemy enemy3;
 
 
     public void setmain(LoginController main) {
@@ -48,33 +55,72 @@ public class MainController implements Initializable {
         System.out.println(id);
     }
 
+    public int getRandomDamage(Monster monster){
+        return (int)Math.floor(Math.random()*monster.getAtt())+5;
+    }
+    public int getRandomComboDamage(Monster monster){
+        return (int)Math.floor(Math.random()*monster.getAtt()*2)+5;
+    }
 
+    public void attackMonster(Monster monster){
+        Random random = new Random();
+        int x = random.nextInt(3);
+        if (x==0){
+            enemy1.kenaSerang(getRandomDamage(monster));
+        }
+        else if (x==1){
+            enemy2.kenaSerang(getRandomDamage(monster));
+        }
+        else {
+            enemy3.kenaSerang(getRandomDamage(monster));
+        }
+    }
 
-    public void comboAction1(ActionEvent actionEvent) {
+    public void comboAttack(Monster monster){
+        Random random = new Random();
+        int x = random.nextInt(3);
+        if (x==0){
+            enemy1.kenaSerang(getRandomComboDamage(monster));
+        }
+        else if (x==1){
+            enemy2.kenaSerang(getRandomComboDamage(monster));
+        }
+        else {
+            enemy3.kenaSerang(getRandomComboDamage(monster));
+        }
     }
 
     public void cmbMonster1(ActionEvent actionEvent) {
     }
 
-    public void fightAction1(ActionEvent actionEvent) {
-    }
-
-    public void comboAction2(ActionEvent actionEvent) {
-    }
-
     public void cmbMonster2(ActionEvent actionEvent) {
     }
 
-    public void fightAction2(ActionEvent actionEvent) {
+    public void cmbMonster3(ActionEvent actionEvent) {
     }
 
-    public void comboAction3(ActionEvent actionEvent) {
+    public void fightAction1(ActionEvent actionEvent) {
+        attackMonster(monster1);
+    }
+
+    public void fightAction2(ActionEvent actionEvent) {
+        attackMonster(monster2);
     }
 
     public void fightAction3(ActionEvent actionEvent) {
+        attackMonster(monster3);
     }
 
-    public void cmbMonster3(ActionEvent actionEvent) {
+    public void comboAction1(ActionEvent actionEvent) {
+        comboAttack(monster1);
+    }
+
+    public void comboAction2(ActionEvent actionEvent) {
+        comboAttack(monster2);
+    }
+
+    public void comboAction3(ActionEvent actionEvent) {
+        comboAttack(monster3);
     }
 
     public void addNewMonster(ActionEvent actionEvent) throws IOException {
