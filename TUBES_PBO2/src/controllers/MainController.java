@@ -42,9 +42,7 @@ public class MainController implements Initializable {
         cmbMonster3.setItems(mList);
     }
 
-    public void basicAttack(cmbMonster1, Enemy){
 
-    }
 
     public void comboAction1(ActionEvent actionEvent) {
     }

@@ -13,7 +13,21 @@ import java.util.List;
 public class MonsterDao implements daoInterface<Monster>{
     @Override
     public int addData(Monster data) {
-        return 0;
+        int result = 0;
+        try {
+            String query = "INSERT INTO monsters(name,hp,attack,element) values(?,?,?,?);";
+            PreparedStatement ps;
+            ps = JDBCConnection.getConnection().prepareStatement(query);
+            ps.setString(1,data.getName());
+            ps.setInt(2,data.getHp());
+            ps.setInt(3,data.getAtt());
+            ps.setInt(4,data.getElement());
+            result = ps.executeUpdate();
+        }
+        catch (SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+        return result;
     }
 
     @Override
