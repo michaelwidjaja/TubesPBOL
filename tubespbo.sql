@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Jan 2021 pada 05.32
--- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.4.5
+-- Generation Time: Jan 08, 2021 at 03:56 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.2.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `elements`
+-- Table structure for table `elements`
 --
 
 CREATE TABLE `elements` (
@@ -33,7 +33,7 @@ CREATE TABLE `elements` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `elements`
+-- Dumping data for table `elements`
 --
 
 INSERT INTO `elements` (`Id`, `Name`) VALUES
@@ -42,12 +42,34 @@ INSERT INTO `elements` (`Id`, `Name`) VALUES
 (3, 'Wind'),
 (4, 'Earth'),
 (5, 'Lightning'),
-(6, 'Water');
+(6, 'Water'),
+(7, 'Optional[w]');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `monsters`
+-- Table structure for table `enemymonster`
+--
+
+CREATE TABLE `enemymonster` (
+  `Id` int(11) NOT NULL,
+  `Name` varchar(45) DEFAULT NULL,
+  `HP` int(11) DEFAULT NULL,
+  `Attack` int(11) DEFAULT NULL,
+  `Elements_Id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `enemymonster`
+--
+
+INSERT INTO `enemymonster` (`Id`, `Name`, `HP`, `Attack`, `Elements_Id`) VALUES
+(1, 'BOSS', 100, 20, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `monsters`
 --
 
 CREATE TABLE `monsters` (
@@ -55,25 +77,24 @@ CREATE TABLE `monsters` (
   `Name` varchar(45) DEFAULT NULL,
   `HP` int(11) DEFAULT NULL,
   `Attack` int(11) DEFAULT NULL,
-  `Accuracy` int(11) NOT NULL,
   `Elements_Id` int(11) NOT NULL,
   `User_idpengguna` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `monsters`
+-- Dumping data for table `monsters`
 --
 
 INSERT INTO `monsters` (`Id`, `Name`, `HP`, `Attack`, `Elements_Id`, `User_idpengguna`) VALUES
-(1, 'Curacas', 100, 5,  1, 1),
-(2, 'Firagas', 100, 10, 2, 1),
-(3, 'Bouldar', 1000, 3, 4, 2),
-(4, 'Vipara', 200, 2, 3, 2);
+(1, 'Curacas', 95, 5, 1, 1),
+(2, 'Firagas', 80, 10, 2, 1),
+(3, 'Bouldar', 97, 3, 4, 2),
+(4, 'Vipara', 95, 2, 3, 2);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -84,25 +105,33 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`idpengguna`, `Nama`, `username`, `password`) VALUES
 (1, 'Admin', 'Admin', 'Admin'),
-(2, 'Andika', 'dika', 'ukm123');
+(2, 'Andika', 'dika', 'ukm123'),
+(3, 'can', 'can', '12345');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `elements`
+-- Indexes for table `elements`
 --
 ALTER TABLE `elements`
   ADD PRIMARY KEY (`Id`);
 
 --
--- Indeks untuk tabel `monsters`
+-- Indexes for table `enemymonster`
+--
+ALTER TABLE `enemymonster`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `Elements_Id` (`Elements_Id`);
+
+--
+-- Indexes for table `monsters`
 --
 ALTER TABLE `monsters`
   ADD PRIMARY KEY (`Id`),
@@ -110,39 +139,45 @@ ALTER TABLE `monsters`
   ADD KEY `fk_user_idpengguna_idx` (`User_idpengguna`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`idpengguna`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `elements`
+-- AUTO_INCREMENT for table `elements`
 --
 ALTER TABLE `elements`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `monsters`
+-- AUTO_INCREMENT for table `monsters`
 --
 ALTER TABLE `monsters`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `idpengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idpengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `monsters`
+-- Constraints for table `enemymonster`
+--
+ALTER TABLE `enemymonster`
+  ADD CONSTRAINT `Elements_Id` FOREIGN KEY (`Elements_Id`) REFERENCES `elements` (`Id`);
+
+--
+-- Constraints for table `monsters`
 --
 ALTER TABLE `monsters`
   ADD CONSTRAINT `fk_Monsters_Elements` FOREIGN KEY (`Elements_Id`) REFERENCES `elements` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
