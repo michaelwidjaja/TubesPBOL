@@ -7,9 +7,9 @@ public class Monster {
     private String name;
     private int hp;
     private int att;
-    private int acc;
     private int element;
     private int User_idpengguna;
+    private String namaelement;
 
     public int getUser_idpengguna() {
         return User_idpengguna;
@@ -27,7 +27,7 @@ public class Monster {
         this.namaelement = namaelement;
     }
 
-    private String  namaelement;
+
 
     @Override
     public String toString() {
@@ -64,14 +64,6 @@ public class Monster {
 
     public void setAtt(int att) {
         this.att = att;
-    }
-
-    public int getAcc() {
-        return acc;
-    }
-
-    public void setAcc(int acc) {
-        this.acc = acc;
     }
 
     public int getElement() {

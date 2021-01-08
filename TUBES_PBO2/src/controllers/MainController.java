@@ -1,5 +1,7 @@
 package controllers;
 
+import DAO.EnemyDao;
+import Model.Enemy;
 import DAO.ElemenDao;
 import DAO.MonsterDao;
 import Model.Elemen;
@@ -38,6 +40,10 @@ public class MainController implements Initializable {
         cmbMonster1.setItems(mList);
         cmbMonster2.setItems(mList);
         cmbMonster3.setItems(mList);
+    }
+
+    public void basicAttack(cmbMonster1, Enemy){
+
     }
 
     public void comboAction1(ActionEvent actionEvent) {

@@ -61,7 +61,7 @@ public class LoginController {
                 Scene scene1 = new Scene(root);
 
                 new_stage.setScene(scene1);
-                new_stage.setTitle("Add Matchers Dialog");
+                new_stage.setTitle("");
                 new_stage.showAndWait();
             }
             else{
