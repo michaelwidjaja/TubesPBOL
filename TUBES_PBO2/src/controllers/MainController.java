@@ -6,6 +6,7 @@ import DAO.ElemenDao;
 import DAO.MonsterDao;
 import Model.Elemen;
 import Model.Monster;
+import Model.UserEntity;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -30,6 +32,8 @@ public class MainController implements Initializable {
     public Label lblHp3;
     public ComboBox cmbMonster3;
     private LoginController main;
+    public int id;
+
 
     public void setmain(LoginController main) {
         this.main = main;
@@ -40,6 +44,7 @@ public class MainController implements Initializable {
         cmbMonster1.setItems(mList);
         cmbMonster2.setItems(mList);
         cmbMonster3.setItems(mList);
+        id =main.iduser;
     }
 
 
@@ -71,6 +76,8 @@ public class MainController implements Initializable {
         Scene scene1 = new Scene(root);
 
         new_stage.setScene(scene1);
+        new_stage.initModality(Modality.WINDOW_MODAL);
+        new_stage.initOwner(mainMonster.getScene().getWindow());
         new_stage.setTitle("Add Monster Baru");
         new_stage.showAndWait();
     }

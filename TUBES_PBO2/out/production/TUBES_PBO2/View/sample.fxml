@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane fx:id="mainMonster" alignment="center" hgap="10" prefHeight="547.0" prefWidth="853.0" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+<GridPane fx:id="mainMonster" alignment="center" hgap="10" prefHeight="547.0" prefWidth="853.0" stylesheets="@../styling/fullpackstyling.css" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
    <rowConstraints>
       <RowConstraints maxHeight="145.0" minHeight="10.0" prefHeight="44.0" vgrow="ALWAYS" />
       <RowConstraints maxHeight="292.0" minHeight="10.0" prefHeight="186.0" vgrow="ALWAYS" />

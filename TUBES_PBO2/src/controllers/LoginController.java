@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import sun.security.provider.MD5;
@@ -26,7 +27,7 @@ public class LoginController {
     public TextField txtUsername;
     public Label lblErrors;
     public Button signin;
-    public int iduser;
+    public int iduser=0;
 
     public void btnSignin(ActionEvent actionEvent) throws IOException {
         String user= txtUsername.getText();
@@ -62,7 +63,7 @@ public class LoginController {
 
                 new_stage.setScene(scene1);
                 new_stage.setTitle("");
-                new_stage.showAndWait();
+                new_stage.show();
             }
             else{
                 lblErrors.setText("Invalid username or password");

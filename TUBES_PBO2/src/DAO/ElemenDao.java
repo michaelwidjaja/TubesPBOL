@@ -39,7 +39,7 @@ public class ElemenDao implements daoInterface<Elemen> {
 
 
     @Override
-    public List showData() {
+    public List<Elemen> showData() {
         ObservableList<Elemen> uList = FXCollections.observableArrayList();
 
         try {
