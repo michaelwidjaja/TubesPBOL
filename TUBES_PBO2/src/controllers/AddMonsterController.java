@@ -18,10 +18,12 @@ public class AddMonsterController {
     public TextField txtNamaMonsterBaru;
     public Button btnTmbhMonster;
     private MainController main;
+    private int id;
 
 
     public void setmain(MainController main) {
         this.main=main;
+        id= main.id;
         ElemenDao elemenDao = new ElemenDao();
         ObservableList<Elemen> eList = (ObservableList<Elemen>) elemenDao.showData();
         cmbElemenBaru.setItems(eList);
@@ -32,11 +34,11 @@ public class AddMonsterController {
         m.setName(txtNamaMonsterBaru.getText());
         m.setHp((int)Math.floor(Math.random() * 3000) + 1000);
         m.setAtt((int)Math.floor(Math.random() * 3000) + 1000);
-
+        m.setUser_idpengguna(id);
         m.setElement(cmbElemenBaru.getValue().getId());
         System.out.println(m.getElement());
         MonsterDao monsterDao = new MonsterDao();
-//        monsterDao.addData(m);
+        monsterDao.addData(m);
     }
 
 

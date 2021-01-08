@@ -45,6 +45,7 @@ public class MainController implements Initializable {
         cmbMonster2.setItems(mList);
         cmbMonster3.setItems(mList);
         id =main.iduser;
+        System.out.println(id);
     }
 
 
