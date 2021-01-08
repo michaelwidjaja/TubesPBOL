@@ -67,6 +67,15 @@ public class MainController implements Initializable {
     public void fightAction2(ActionEvent actionEvent) {
     }
 
+    public void comboAction3(ActionEvent actionEvent) {
+    }
+
+    public void fightAction3(ActionEvent actionEvent) {
+    }
+
+    public void cmbMonster3(ActionEvent actionEvent) {
+    }
+
     public void addNewMonster(ActionEvent actionEvent) throws IOException {
         Stage new_stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/addMonster.fxml"));
@@ -94,16 +103,6 @@ public class MainController implements Initializable {
         ElemenDao elemenDao = new ElemenDao();
         elemenDao.addData(e);
     }
-
-    public void comboAction3(ActionEvent actionEvent) {
-    }
-
-    public void fightAction3(ActionEvent actionEvent) {
-    }
-
-    public void cmbMonster3(ActionEvent actionEvent) {
-    }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

@@ -18,7 +18,7 @@ public class AddMonsterController {
     public TextField txtNamaMonsterBaru;
     public Button btnTmbhMonster;
     private MainController main;
-    private LoginController log;
+
 
     public void setmain(MainController main) {
         this.main=main;
