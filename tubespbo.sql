@@ -64,7 +64,7 @@ CREATE TABLE `enemymonster` (
 --
 
 INSERT INTO `enemymonster` (`Id`, `Name`, `HP`, `Attack`, `Elements_Id`) VALUES
-(1, 'BOSS', 5000, 20, 2);
+(1, 'BOSS', 100, 20, 2);
 
 -- --------------------------------------------------------
 
@@ -86,10 +86,10 @@ CREATE TABLE `monsters` (
 --
 
 INSERT INTO `monsters` (`Id`, `Name`, `HP`, `Attack`, `Elements_Id`, `User_idpengguna`) VALUES
-(1, 'Curacas', 100, 5, 1, 1),
-(2, 'Firagas', 100, 10, 2, 1),
-(3, 'Bouldar', 1000, 3, 4, 2),
-(4, 'Vipara', 200, 2, 3, 2);
+(1, 'Curacas', 95, 5, 1, 1),
+(2, 'Firagas', 80, 10, 2, 1),
+(3, 'Bouldar', 97, 3, 4, 2),
+(4, 'Vipara', 95, 2, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -111,8 +111,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`idpengguna`, `Nama`, `username`, `password`) VALUES
 (1, 'Admin', 'Admin', 'Admin'),
 (2, 'Andika', 'dika', 'ukm123'),
-(15, 'can', 'can', '12345'),
-(16, 'mek', 'maksdmaks', 'wawaw');
+(3, 'can', 'can', '12345');
 
 --
 -- Indexes for dumped tables
