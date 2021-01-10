@@ -190,6 +190,19 @@ public class MainController implements Initializable {
     public void addEnemy(ActionEvent actionEvent) {
     }
 
-    public void Logout(ActionEvent actionEvent) {
+    public void Logout(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) btnLogout.getScene().getWindow();
+        stage.close();
+
+        Stage new_stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/MainView.fxml"));
+        Parent root = loader.load();
+        LoginController controler = loader.getController();
+        controler.setmain(this);
+        Scene scene1 = new Scene(root);
+
+        new_stage.setScene(scene1);
+        new_stage.setTitle("");
+        new_stage.show();
     }
 }

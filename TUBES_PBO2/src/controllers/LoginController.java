@@ -28,6 +28,11 @@ public class LoginController {
     public Label lblErrors;
     public Button signin;
     public int iduser=0;
+    private MainController main;
+
+    public void setmain(MainController main) {
+        this.main = main;
+    }
 
     public void btnSignin(ActionEvent actionEvent) throws IOException {
         String user= txtUsername.getText();
@@ -84,4 +89,5 @@ public class LoginController {
         new_stage.showAndWait();
 
     }
+
 }
