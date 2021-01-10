@@ -31,7 +31,7 @@ public class EnemyDao implements daoInterface<Enemy>{
     public List<Enemy> showData() {
         ObservableList<Enemy> eList = FXCollections.observableArrayList();
         try {
-            String query = "SELECT m.*,e.Name AS enemyMonster FROM EnemyMonster m JOIN elements e ON e.Id=m.Elements_Id";
+            String query = "SELECT *  FROM enemymonster ";
             PreparedStatement ps;
             ps = JDBCConnection.getConnection().prepareStatement(query);
             ResultSet res = ps.executeQuery();
@@ -41,7 +41,6 @@ public class EnemyDao implements daoInterface<Enemy>{
                 int hp = res.getInt("HP");
                 int att = res.getInt("attack");
                 int elements_id = res.getInt("Elements_id");
-                String elements_nama = res.getString("enemyMonster");
                 Enemy eM = new Enemy();
                 eM.setId(id);
                 eM.setAttack(att);

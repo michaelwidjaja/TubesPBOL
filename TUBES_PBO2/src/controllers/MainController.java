@@ -103,6 +103,7 @@ public class MainController implements Initializable {
     public int getRandomenemy(){
         EnemyDao eDao = new EnemyDao();
         ObservableList<Enemy> eList = (ObservableList<Enemy>) eDao.showData();
+        eList.size();
         int x=1;
         int y=3;
         int random = ThreadLocalRandom.current().nextInt(x,y);
@@ -116,6 +117,10 @@ public class MainController implements Initializable {
         lblHp1.setText(String.valueOf(monster1.getAtt()));
         System.out.println("random");
         System.out.println(getRandomenemy());
+
+        EnemyDao eDao = new EnemyDao();
+        ObservableList<Enemy> eList = (ObservableList<Enemy>) eDao.showData();
+        System.out.println(eList.size());
     }
 
     public void cmbMonster2(ActionEvent actionEvent) {

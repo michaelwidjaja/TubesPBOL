@@ -46,7 +46,7 @@ public class MonsterDao implements daoInterface<Monster>{
         ObservableList<Monster> mList = FXCollections.observableArrayList();
 
         try {
-            String query = "SELECT m.*,e.Name AS namael FROM monsters m JOIN elements e ON e.Id=m.Elements_Id ";
+            String query = "SELECT * FROM monsters";
             PreparedStatement ps;
             ps = JDBCConnection.getConnection().prepareStatement(query);
             ResultSet res= ps.executeQuery();
@@ -75,7 +75,7 @@ public class MonsterDao implements daoInterface<Monster>{
         ObservableList<Monster> mList = FXCollections.observableArrayList();
 
         try {
-            String query = "SELECT m.*,e.Name AS namael FROM monsters m JOIN elements e ON e.Id=m.Elements_Id Where User_idpengguna=?";
+            String query = "SELECT * FROM monsters  Where User_idpengguna=?";
             PreparedStatement ps;
             ps = JDBCConnection.getConnection().prepareStatement(query);
             ps.setInt(1,data.getUser_idpengguna());
@@ -95,7 +95,6 @@ public class MonsterDao implements daoInterface<Monster>{
                 m.setElement(elements_id);
                 m.setUser_idpengguna(User_idpengguna);
                 mList.add(m);
-
             }
         }
         catch (SQLException ex){
