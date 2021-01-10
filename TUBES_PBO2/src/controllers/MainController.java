@@ -106,9 +106,8 @@ public class MainController implements Initializable {
     public int getRandomenemy(){
         EnemyDao eDao = new EnemyDao();
         ObservableList<Enemy> eList = (ObservableList<Enemy>) eDao.showData();
-        eList.size();
         int x=1;
-        int y=3;
+        int y=eList.size();
         int random = ThreadLocalRandom.current().nextInt(x,y);
         return random;
     }
@@ -120,10 +119,6 @@ public class MainController implements Initializable {
         lblHp1.setText(String.valueOf(monster1.getAtt()));
         System.out.println("random");
         System.out.println(getRandomenemy());
-
-        EnemyDao eDao = new EnemyDao();
-        ObservableList<Enemy> eList = (ObservableList<Enemy>) eDao.showData();
-        System.out.println(eList.size());
     }
 
     public void cmbMonster2(ActionEvent actionEvent) {
@@ -195,7 +190,7 @@ public class MainController implements Initializable {
     }
 
 
-    public void addEnemy(ActionEvent actionEvent) {
+    public void addEnemy(ActionEvent actionEvent) throws IOException {
         Stage new_stage = new Stage();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/addEnemy.fxml"));
         Parent root = loader.load();
