@@ -69,14 +69,14 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </Label>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#comboAttack1" prefHeight="25.0" prefWidth="122.0" stylesheets="@../styling/fullpackstyling.css" text="Combo" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3">
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#comboAttack1" style="-fx-border-radius: 10;" stylesheets="@../styling/fullpackstyling.css" text="Combo" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </Button>
             <Label fx:id="lblHp1" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ComboBox fx:id="comboMonster1" onAction="#cmbMonster1" prefWidth="150.0" GridPane.columnIndex="1" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#fightAction1" prefHeight="25.0" prefWidth="122.0" stylesheets="@../styling/fullpackstyling.css" text="Basic Attack" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#fightAction1" style="-fx-border-radius: 10;" stylesheets="@../styling/fullpackstyling.css" text="Basic Attack" GridPane.columnSpan="2" GridPane.rowIndex="2" />
          </children>
          <GridPane.margin>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -117,12 +117,12 @@
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </GridPane.margin>
       </GridPane>
-      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addNewMonster" stylesheets="@../styling/fullpackstyling.css" text="Add New Monster" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3">
+      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addNewMonster" style="-fx-border-radius: 10;" stylesheets="@../styling/fullpackstyling.css" text="Add New Monster" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </Button>
-      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addElement" stylesheets="@../styling/fullpackstyling.css" text="Add New Elements" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3">
+      <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addElement" style="-fx-border-radius: 10;" stylesheets="@../styling/fullpackstyling.css" text="Add New Elements" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
@@ -149,14 +149,14 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </Label>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#comboAttack3" prefHeight="25.0" prefWidth="122.0" stylesheets="@../styling/fullpackstyling.css" text="Combo" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3">
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#comboAttack3" prefHeight="25.0" prefWidth="122.0" style="-fx-border-radius: 10;" stylesheets="@../styling/fullpackstyling.css" text="Combo" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </Button>
             <Label fx:id="lblHp3" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ComboBox fx:id="comboMonster3" onAction="#cmbMonster3" prefWidth="150.0" GridPane.columnIndex="1" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#fightAction3" prefHeight="25.0" prefWidth="122.0" stylesheets="@../styling/fullpackstyling.css" text="Basic Attack" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#fightAction3" style="-fx-border-radius: 10;" stylesheets="@../styling/fullpackstyling.css" text="Basic Attack" GridPane.columnSpan="2" GridPane.rowIndex="2" />
          </children>
          <GridPane.margin>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -175,12 +175,12 @@
             </HBox>
          </children>
       </HBox>
-      <Button fx:id="btnAddEnemy" maxWidth="-Infinity" mnemonicParsing="false" onAction="#addEnemy" text="Add enemy monster" GridPane.columnIndex="3" GridPane.rowIndex="3">
+      <Button fx:id="btnAddEnemy" maxWidth="-Infinity" mnemonicParsing="false" onAction="#addEnemy" style="-fx-border-radius: 10;" text="Add enemy monster" GridPane.columnIndex="3" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets left="10.0" />
          </GridPane.margin>
       </Button>
-      <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#Logout" prefHeight="27.2" prefWidth="100.0" text="Logout" GridPane.columnIndex="3" GridPane.rowIndex="3">
+      <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#Logout" prefHeight="27.2" prefWidth="100.0" style="-fx-border-radius: 10;" text="Logout" GridPane.columnIndex="3" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets left="160.0" />
          </GridPane.margin>
