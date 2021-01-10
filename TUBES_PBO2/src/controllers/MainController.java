@@ -37,9 +37,6 @@ public class MainController implements Initializable {
     public TextArea textHistory;
     public Button btnAddEnemy;
     public Button btnLogout;
-    public TextField txtNamaEnemyBaru;
-    public ComboBox txtCmbNewElement;
-    public Button btnTmbhEnemy;
     private LoginController main;
     public int id;
     public TextArea historytext;
@@ -192,7 +189,7 @@ public class MainController implements Initializable {
 
     public void addEnemy(ActionEvent actionEvent) throws IOException {
         Stage new_stage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/addEnemy.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/addMonster.fxml"));
         Parent root = loader.load();
         AddMonsterController controler = loader.getController();
         controler.setmain(this);
@@ -219,9 +216,5 @@ public class MainController implements Initializable {
         new_stage.setScene(scene1);
         new_stage.setTitle("");
         new_stage.show();
-    }
-
-    public void addEnemyBaru(ActionEvent actionEvent) {
-
     }
 }
