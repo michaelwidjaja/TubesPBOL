@@ -35,6 +35,8 @@ public class MainController implements Initializable {
     public Label lblHp3;
     public ComboBox<Monster> comboMonster3;
     public TextArea textHistory;
+    public Button btnAddEnemy;
+    public Button btnLogout;
     private LoginController main;
     public int id;
     public TextArea historytext;
@@ -185,4 +187,9 @@ public class MainController implements Initializable {
     }
 
 
+    public void addEnemy(ActionEvent actionEvent) {
+    }
+
+    public void Logout(ActionEvent actionEvent) {
+    }
 }
