@@ -189,9 +189,9 @@ public class MainController implements Initializable {
 
     public void addEnemy(ActionEvent actionEvent) throws IOException {
         Stage new_stage = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/addMonster.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/addEnemy.fxml"));
         Parent root = loader.load();
-        AddMonsterController controler = loader.getController();
+        AddEnemyController controler = loader.getController();
         controler.setmain(this);
         Scene scene1 = new Scene(root);
 
