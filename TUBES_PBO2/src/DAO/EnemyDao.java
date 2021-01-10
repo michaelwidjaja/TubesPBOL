@@ -14,7 +14,21 @@ public class EnemyDao implements daoInterface<Enemy>{
 
     @Override
     public int addData(Enemy data) {
-        return 0;
+        int result = 0;
+        try {
+            String query = "INSERT INTO enemymonster(name,hp,attack,elements_id,User_idpengguna) values(?,?,?,?,?);";
+            PreparedStatement ps;
+            ps = JDBCConnection.getConnection().prepareStatement(query);
+            ps.setString(1,data.getName());
+            ps.setInt(2,data.getHP());
+            ps.setInt(3,data.getAttack());
+            ps.setInt(4,data.getElement());
+            result = ps.executeUpdate();
+        }
+        catch (SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+        return result;
     }
 
     @Override
