@@ -75,7 +75,7 @@ public class EnemyDao implements daoInterface<Enemy>{
         Enemy e = new Enemy();
 
         try {
-            String query = "SELECT * FROM user Where username=? and password=?";
+            String query = "SELECT * FROM enemymonster Where id=?";
 
             PreparedStatement ps;
             ps = JDBCConnection.getConnection().prepareStatement(query);

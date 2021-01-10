@@ -47,6 +47,26 @@ public class MainController implements Initializable {
     private Enemy enemy2;
     private Enemy enemy3;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        int rand1=getRandomenemy();
+        int rand2=getRandomenemy();
+        int rand3=getRandomenemy();
+        enemy1=new Enemy();
+        enemy1.setId(rand1);
+        EnemyDao dao1=new EnemyDao();
+        enemy1=dao1.search(enemy1);
+
+        enemy2=new Enemy();
+        enemy2.setId(rand2);
+        EnemyDao dao2=new EnemyDao();
+        enemy2=dao2.search(enemy2);
+
+        enemy3=new Enemy();
+        enemy3.setId(rand3);
+        EnemyDao dao3=new EnemyDao();
+        enemy3=dao3.search(enemy3);
+    }
 
     public void setmain(LoginController main) {
         this.main = main;
@@ -59,6 +79,34 @@ public class MainController implements Initializable {
         comboMonster3.setItems(mList);
         id =main.iduser;
         System.out.println(id);
+    }
+    public int getRandomenemy(){
+        EnemyDao eDao = new EnemyDao();
+        ObservableList<Enemy> eList = (ObservableList<Enemy>) eDao.showData();
+        int x=1;
+        int y=eList.size();
+        int random = ThreadLocalRandom.current().nextInt(x,y);
+        return random;
+    }
+
+    public void cmbMonster1(ActionEvent actionEvent) {
+        monster1 = comboMonster1.getValue();
+        System.out.println("Att");
+        System.out.println(monster1.getAtt());
+        lblHp1.setText(String.valueOf(monster1.getAtt()));
+        System.out.println("random");
+        System.out.println(getRandomenemy());
+    }
+
+    public void fightAction1(ActionEvent actionEvent)    {
+        monster1 = comboMonster1.getValue();
+        System.out.println(monster1.getHp());
+        monster1.kenaSerang(enemy1.getAttack());
+        System.out.println(monster1.getHp());
+
+        System.out.println("Attack kita"+monster1.getAtt());
+        System.out.println("Attack enemy"+enemy1.getAttack());
+
     }
 
 //    public int getRandomDamage(Monster monster){
@@ -100,40 +148,7 @@ public class MainController implements Initializable {
 //        }
 //    }
 
-    public int getRandomenemy(){
-        EnemyDao eDao = new EnemyDao();
-        ObservableList<Enemy> eList = (ObservableList<Enemy>) eDao.showData();
-        int x=1;
-        int y=eList.size();
-        int random = ThreadLocalRandom.current().nextInt(x,y);
-        return random;
-    }
 
-    public void cmbMonster1(ActionEvent actionEvent) {
-        monster1 = comboMonster1.getValue();
-        System.out.println("Att");
-        System.out.println(monster1.getAtt());
-        lblHp1.setText(String.valueOf(monster1.getAtt()));
-        System.out.println("random");
-        System.out.println(getRandomenemy());
-    }
-
-    public void fightAction1(ActionEvent actionEvent) {
-        monster1 = comboMonster1.getValue();
-        if(monster1.getId()!=0){
-            Enemy e=new Enemy();
-            int rand= getRandomenemy();
-            e.setId(rand);
-            enemy1.setId(rand);
-            EnemyDao dao=new EnemyDao();
-            enemy1=dao.search(enemy1);
-            System.out.println(enemy1);
-        }
-        else{
-
-        }
-
-    }
 
     public void cmbMonster2(ActionEvent actionEvent) {
         monster2 = comboMonster2.getValue();
@@ -193,10 +208,7 @@ public class MainController implements Initializable {
         elemenDao.addData(e);
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
 
-    }
 
 
     public void addEnemy(ActionEvent actionEvent) throws IOException {
