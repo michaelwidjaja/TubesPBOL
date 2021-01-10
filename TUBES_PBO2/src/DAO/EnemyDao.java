@@ -39,14 +39,16 @@ public class EnemyDao implements daoInterface<Enemy>{
                 int id = res.getInt("Id");
                 String name = res.getString("Name");
                 int hp = res.getInt("HP");
+                int att = res.getInt("attack");
                 int elements_id = res.getInt("Elements_id");
                 String elements_nama = res.getString("enemyMonster");
                 Enemy eM = new Enemy();
                 eM.setId(id);
+                eM.setAttack(att);
                 eM.setName(name);
                 eM.setHP(hp);
                 eM.setElement(elements_id);
-                eM.setNamaelement(elements_nama);
+
 
             }
         }

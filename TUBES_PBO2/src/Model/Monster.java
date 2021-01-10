@@ -9,7 +9,6 @@ public class Monster {
     private int att;
     private int element;
     private int User_idpengguna;
-    private String namaelement;
 
     public int getUser_idpengguna() {
         return User_idpengguna;
@@ -17,14 +16,6 @@ public class Monster {
 
     public void setUser_idpengguna(int user_idpengguna) {
         User_idpengguna = user_idpengguna;
-    }
-
-    public String getNamaelement() {
-        return namaelement;
-    }
-
-    public void setNamaelement(String namaelement) {
-        this.namaelement = namaelement;
     }
 
     public void kenaSerang(int n){

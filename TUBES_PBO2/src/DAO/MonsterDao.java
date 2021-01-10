@@ -15,13 +15,14 @@ public class MonsterDao implements daoInterface<Monster>{
     public int addData(Monster data) {
         int result = 0;
         try {
-            String query = "INSERT INTO monsters(name,hp,attack,element) values(?,?,?,?);";
+            String query = "INSERT INTO monsters(name,hp,attack,elements_id,User_idpengguna) values(?,?,?,?,?);";
             PreparedStatement ps;
             ps = JDBCConnection.getConnection().prepareStatement(query);
             ps.setString(1,data.getName());
             ps.setInt(2,data.getHp());
             ps.setInt(3,data.getAtt());
             ps.setInt(4,data.getElement());
+            ps.setInt(5,data.getUser_idpengguna());
             result = ps.executeUpdate();
         }
         catch (SQLException ex){
@@ -54,13 +55,13 @@ public class MonsterDao implements daoInterface<Monster>{
                 String name= res.getString("Name");
                 int hp =res.getInt("HP");
                 int elements_id =res.getInt("Elements_id");
-                String elements_nama =res.getString("namael");
+                int User_idpengguna =res.getInt("User_idpengguna");
                 Monster m= new Monster();
                 m.setId(id);
                 m.setName(name);
                 m.setHp(hp);
                 m.setElement(elements_id);
-                m.setNamaelement(elements_nama);
+                m.setUser_idpengguna(User_idpengguna);
                 mList.add(m);
 
             }
@@ -83,14 +84,16 @@ public class MonsterDao implements daoInterface<Monster>{
                 int id = res.getInt("Id");
                 String name= res.getString("Name");
                 int hp =res.getInt("HP");
+                int att =res.getInt("attack");
                 int elements_id =res.getInt("Elements_id");
-                String elements_nama =res.getString("namael");
+                int User_idpengguna =res.getInt("User_idpengguna");
                 Monster m= new Monster();
                 m.setId(id);
+                m.setAtt(att);
                 m.setName(name);
                 m.setHp(hp);
                 m.setElement(elements_id);
-                m.setNamaelement(elements_nama);
+                m.setUser_idpengguna(User_idpengguna);
                 mList.add(m);
 
             }

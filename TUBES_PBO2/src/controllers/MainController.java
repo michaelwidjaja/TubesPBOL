@@ -24,6 +24,7 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class MainController implements Initializable {
     public GridPane mainMonster;
@@ -97,8 +98,22 @@ public class MainController implements Initializable {
 //        }
     }
 
+    public int getRandomenemy(){
+        EnemyDao eDao = new EnemyDao();
+        ObservableList<Enemy> eList = (ObservableList<Enemy>) eDao.showData();
+        int x=1;
+        int y=3;
+        int random = ThreadLocalRandom.current().nextInt(x,y);
+        return random;
+    }
+
     public void cmbMonster1(ActionEvent actionEvent) {
         monster1 = comboMonster1.getValue();
+        System.out.println("Att");
+        System.out.println(monster1.getAtt());
+        lblHp1.setText(String.valueOf(monster1.getAtt()));
+        System.out.println("random");
+        System.out.println(getRandomenemy());
     }
 
     public void cmbMonster2(ActionEvent actionEvent) {

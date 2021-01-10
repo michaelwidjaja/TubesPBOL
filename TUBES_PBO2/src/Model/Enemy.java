@@ -6,7 +6,7 @@ public class Enemy {
     private int HP;
     private int Attack;
     private int element;
-    private String namaelement;
+
 
 
     public int getId() {
@@ -49,13 +49,6 @@ public class Enemy {
         this.element = element;
     }
 
-    public String getNamaelement() {
-        return namaelement;
-    }
-
-    public void setNamaelement(String namaelement) {
-        this.namaelement = namaelement;
-    }
 
     public void kenaSerang(int n){
         this.HP -= n;

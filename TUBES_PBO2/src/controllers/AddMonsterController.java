@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -32,14 +33,17 @@ public class AddMonsterController {
     public void addMonsterBaru(ActionEvent actionEvent) {
         Monster m = new Monster();
         m.setName(txtNamaMonsterBaru.getText());
-        m.setHp((int)Math.floor(Math.random() * 300) + 100);
-        m.setAtt((int)Math.floor(Math.random() * 70) + 5);
+        m.setHp((int)Math.floor(Math.random() * 100));
+        m.setAtt((int)Math.floor(Math.random() * 50) + 5);
         m.setUser_idpengguna(id);
         m.setElement(cmbElemenBaru.getValue().getId());
         System.out.println(m.getElement());
         MonsterDao monsterDao = new MonsterDao();
-        monsterDao.addData(m);
+        int res =monsterDao.addData(m);
+        System.out.println("Ini hasil " + res);
+        if (res!=0){
+            Stage stage = (Stage) btnTmbhMonster.getScene().getWindow();
+            stage.close();
+        }
     }
-
-
 }

@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="180.0" prefWidth="404.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddMonsterController">
+<AnchorPane prefHeight="180.0" prefWidth="404.0" stylesheets="@../styling/fullpackstyling.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddMonsterController">
    <children>
       <Label layoutX="70.0" layoutY="64.0" prefHeight="17.0" prefWidth="89.0" text="Nama monster" />
       <Label layoutX="70.0" layoutY="94.0" prefHeight="17.0" prefWidth="89.0" text="Element" />
