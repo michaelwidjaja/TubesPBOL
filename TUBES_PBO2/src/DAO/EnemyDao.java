@@ -16,7 +16,7 @@ public class EnemyDao implements daoInterface<Enemy>{
     public int addData(Enemy data) {
         int result = 0;
         try {
-            String query = "INSERT INTO enemymonster(name,hp,attack,elements_id,User_idpengguna) values(?,?,?,?,?);";
+            String query = "INSERT INTO enemymonster(name,hp,attack,elements_id) values(?,?,?,?);";
             PreparedStatement ps;
             ps = JDBCConnection.getConnection().prepareStatement(query);
             ps.setString(1,data.getName());

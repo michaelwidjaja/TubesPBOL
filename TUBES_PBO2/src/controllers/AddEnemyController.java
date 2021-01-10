@@ -1,8 +1,10 @@
 package controllers;
 
 import DAO.ElemenDao;
+import DAO.EnemyDao;
 import DAO.MonsterDao;
 import Model.Elemen;
+import Model.Enemy;
 import Model.Monster;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,13 +29,13 @@ public class AddEnemyController {
     }
 
     public void addEnemyBaru(ActionEvent actionEvent) {
-        Monster m = new Monster();
+        Enemy m = new Enemy();
         m.setName(txtNamaEnemyBaru.getText());
-        m.setHp((int)Math.floor(Math.random() * 100));
-        m.setAtt((int)Math.floor(Math.random() * 50) + 5);
+        m.setHP((int)Math.floor(Math.random() * 100));
+        m.setAttack((int)Math.floor(Math.random() * 50) + 5);
         m.setElement(txtCmbNewElement.getValue().getId());
         System.out.println(m.getElement());
-        MonsterDao monsterDao = new MonsterDao();
+        EnemyDao monsterDao = new EnemyDao();
         int res =monsterDao.addData(m);
         System.out.println("Ini hasil " + res);
         if (res!=0){
