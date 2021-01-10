@@ -44,7 +44,7 @@
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2">
          <children>
-            <TextArea fx:id="textHistory" maxWidth="1.7976931348623157E308" prefHeight="214.0" prefWidth="852.0" />
+            <TextArea fx:id="textHistory" maxWidth="1.7976931348623157E308" prefHeight="214.0" prefWidth="832.0" />
          </children>
       </HBox>
       <GridPane prefHeight="157.0" prefWidth="331.0" style="-fx-border-color: black; -fx-border-radius: 10;" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -175,11 +175,15 @@
             </HBox>
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
-         <children>
-            <Button fx:id="btnAddEnemy" mnemonicParsing="false" onAction="#addEnemy" prefHeight="27.0" prefWidth="146.0" text="Add enemy monster" />
-            <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#Logout" prefHeight="27.0" prefWidth="116.0" text="Logout" />
-         </children>
-      </HBox>
+      <Button fx:id="btnAddEnemy" maxWidth="-Infinity" mnemonicParsing="false" onAction="#addEnemy" text="Add enemy monster" GridPane.columnIndex="3" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets left="10.0" />
+         </GridPane.margin>
+      </Button>
+      <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#Logout" prefHeight="27.2" prefWidth="100.0" text="Logout" GridPane.columnIndex="3" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets left="160.0" />
+         </GridPane.margin>
+      </Button>
    </children>
 </GridPane>
