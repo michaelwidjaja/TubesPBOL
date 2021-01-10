@@ -1,6 +1,7 @@
 package DAO;
 
 import Model.Enemy;
+import Model.UserEntity;
 import Util.JDBCConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -68,6 +69,36 @@ public class EnemyDao implements daoInterface<Enemy>{
             System.out.println(ex.getMessage());
         }
         return eList;
+    }
+
+    public Enemy search(Enemy data){
+        Enemy e = new Enemy();
+
+        try {
+            String query = "SELECT * FROM user Where username=? and password=?";
+
+            PreparedStatement ps;
+            ps = JDBCConnection.getConnection().prepareStatement(query);
+            ps.setInt(1,data.getId());
+            ResultSet res= ps.executeQuery();
+            while (res.next()){
+                int id = res.getInt("Id");
+                String name = res.getString("Name");
+                int hp = res.getInt("HP");
+                int att = res.getInt("attack");
+                int elements_id = res.getInt("Elements_id");
+
+                e.setId(id);
+                e.setAttack(att);
+                e.setName(name);
+                e.setHP(hp);
+                e.setElement(elements_id);
+            }
+        }
+        catch (SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+        return e;
     }
 
 }

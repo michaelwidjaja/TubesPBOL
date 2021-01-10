@@ -61,32 +61,32 @@ public class MainController implements Initializable {
         System.out.println(id);
     }
 
-    public int getRandomDamage(Monster monster){
-        return (int)Math.floor(Math.random()*monster.getAtt()+5);
-    }
-    public int getRandomComboDamage(Monster monster){
-        return (int)Math.floor(Math.random()*monster.getAtt()*2)+5;
-    }
-
-    public void attackMonster(Monster monster){
-        Random random = new Random();
-        int x = random.nextInt(3);
-        int dmg = getRandomDamage(monster);
-        if (x==0){
-            enemy1.kenaSerang(dmg);
-            historytext.appendText("/n"+monster.getName()+" hit "+enemy1.getName()+" with "+dmg+" damage");
-        }
-        else if (x==1){
-            enemy2.kenaSerang(dmg);
-            historytext.appendText("/n"+monster.getName()+" hit "+enemy2.getName()+" with "+dmg+" damage");
-        }
-        else {
-            enemy3.kenaSerang(dmg);
-            historytext.appendText("/n"+monster.getName()+" hit "+enemy3.getName()+" with "+dmg+" damage");
-        }
-    }
-
-    public void comboAttack(Monster monster){
+//    public int getRandomDamage(Monster monster){
+//        return (int)Math.floor(Math.random()*monster.getAtt()+5);
+//    }
+//    public int getRandomComboDamage(Monster monster){
+//        return (int)Math.floor(Math.random()*monster.getAtt()*2)+5;
+//    }
+//
+//    public void attackMonster(Monster monster){
+//        Random random = new Random();
+//        int x = random.nextInt(3);
+//        int dmg = getRandomDamage(monster);
+//        if (x==0){
+//            enemy1.kenaSerang(dmg);
+//            historytext.appendText("/n"+monster.getName()+" hit "+enemy1.getName()+" with "+dmg+" damage");
+//        }
+//        else if (x==1){
+//            enemy2.kenaSerang(dmg);
+//            historytext.appendText("/n"+monster.getName()+" hit "+enemy2.getName()+" with "+dmg+" damage");
+//        }
+//        else {
+//            enemy3.kenaSerang(dmg);
+//            historytext.appendText("/n"+monster.getName()+" hit "+enemy3.getName()+" with "+dmg+" damage");
+//        }
+//    }
+//
+//    public void comboAttack(Monster monster){
 //        Random random = new Random();
 //        int x = random.nextInt(3);
 //        if (x==0){
@@ -98,7 +98,7 @@ public class MainController implements Initializable {
 //        else {
 //            enemy3.kenaSerang(getRandomComboDamage(monster));
 //        }
-    }
+//    }
 
     public int getRandomenemy(){
         EnemyDao eDao = new EnemyDao();
@@ -118,6 +118,23 @@ public class MainController implements Initializable {
         System.out.println(getRandomenemy());
     }
 
+    public void fightAction1(ActionEvent actionEvent) {
+        monster1 = comboMonster1.getValue();
+        if(monster1.getId()!=0){
+            Enemy e=new Enemy();
+            int rand= getRandomenemy();
+            e.setId(rand);
+            enemy1.setId(rand);
+            EnemyDao dao=new EnemyDao();
+            enemy1=dao.search(enemy1);
+            System.out.println(enemy1);
+        }
+        else{
+
+        }
+
+    }
+
     public void cmbMonster2(ActionEvent actionEvent) {
         monster2 = comboMonster2.getValue();
     }
@@ -126,19 +143,14 @@ public class MainController implements Initializable {
         monster3 = comboMonster3.getValue();
     }
 
-    public void fightAction1(ActionEvent actionEvent) {
-        attackMonster(monster1);
-        textHistory.setText(String.valueOf(historytext));
-    }
+
 
     public void fightAction2(ActionEvent actionEvent) {
-        attackMonster(monster2);
-        textHistory.setText(String.valueOf(historytext));
+
     }
 
     public void fightAction3(ActionEvent actionEvent) {
-        attackMonster(monster3);
-        textHistory.setText(String.valueOf(historytext));
+
     }
 
     public void comboAttack1(ActionEvent actionEvent) {
