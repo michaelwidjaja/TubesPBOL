@@ -42,8 +42,7 @@ INSERT INTO `elements` (`Id`, `Name`) VALUES
 (3, 'Wind'),
 (4, 'Earth'),
 (5, 'Lightning'),
-(6, 'Water'),
-(7, 'Optional[w]');
+(6, 'Water');
 
 -- --------------------------------------------------------
 
