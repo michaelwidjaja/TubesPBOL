@@ -45,125 +45,96 @@ public class MainController implements Initializable {
     private Enemy enemy1;
     private Enemy enemy2;
     private Enemy enemy3;
+    String p = new String();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        int rand1=getRandomenemy();
-        int rand2=getRandomenemy();
-        int rand3=getRandomenemy();
-        enemy1=new Enemy();
+        int rand1 = getRandomenemy();
+        int rand2 = getRandomenemy();
+        int rand3 = getRandomenemy();
+        enemy1 = new Enemy();
         enemy1.setId(rand1);
-        EnemyDao dao1=new EnemyDao();
-        enemy1=dao1.search(enemy1);
+        EnemyDao dao1 = new EnemyDao();
+        enemy1 = dao1.search(enemy1);
 
-        enemy2=new Enemy();
+        enemy2 = new Enemy();
         enemy2.setId(rand2);
-        EnemyDao dao2=new EnemyDao();
-        enemy2=dao2.search(enemy2);
+        EnemyDao dao2 = new EnemyDao();
+        enemy2 = dao2.search(enemy2);
 
-        enemy3=new Enemy();
+        enemy3 = new Enemy();
         enemy3.setId(rand3);
-        EnemyDao dao3=new EnemyDao();
-        enemy3=dao3.search(enemy3);
+        EnemyDao dao3 = new EnemyDao();
+        enemy3 = dao3.search(enemy3);
 
-        monster1=new Monster();
+        monster1 = new Monster();
     }
 
     public void setmain(LoginController main) {
         this.main = main;
         MonsterDao mDao = new MonsterDao();
-        Monster m =new Monster();
+        Monster m = new Monster();
         m.setUser_idpengguna(main.iduser);
         ObservableList<Monster> mList = (ObservableList<Monster>) mDao.showDataselect(m);
         comboMonster1.setItems(mList);
         comboMonster2.setItems(mList);
         comboMonster3.setItems(mList);
-        id =main.iduser;
+        id = main.iduser;
         System.out.println(id);
     }
-    public int getRandomenemy(){
+
+    public int getRandomenemy() {
         EnemyDao eDao = new EnemyDao();
         ObservableList<Enemy> eList = (ObservableList<Enemy>) eDao.showData();
-        int x=1;
-        int y=eList.size();
-        int random = ThreadLocalRandom.current().nextInt(x,y);
+        int x = 1;
+        int y = eList.size();
+        int random = ThreadLocalRandom.current().nextInt(x, y);
         return random;
     }
 
     public void cmbMonster1(ActionEvent actionEvent) {
-        monster1=new Monster();
+        monster1 = new Monster();
         monster1 = comboMonster1.getValue();
         System.out.println("Att");
         System.out.println(monster1.getAtt());
         lblHp1.setText(String.valueOf(monster1.getAtt()));
     }
 
-    public void fightAction1(ActionEvent actionEvent)    {
+    public void fightAction1(ActionEvent actionEvent) {
         monster1 = comboMonster1.getValue();
-        String p = new String();
-        if(monster1!=null){
-            System.out.println(monster1);
-            p+="Hp monster: "+String.valueOf(monster1.getHp())+"\n";
-            textHistory.setText(p);
-            monster1.kenaSerang(enemy1.getAttack());
-            p+="Hp monster: "+String.valueOf(monster1.getHp())+"\n";
-            textHistory.setText(p);
-            System.out.println("Attack kita"+monster1.getAtt());
-            System.out.println("Attack enemy"+enemy1.getAttack());
+        if (monster1 != null) {
+            if (monster1.getHp() > 0 && enemy1.getHP()>0) {
+                System.out.println(monster1);
+                p += "Hp monster1: " + String.valueOf(monster1.getHp()) + "\n";
+                textHistory.setText(p);
+                monster1.kenaSerang(enemy1.getAttack());
+                enemy1.kenaSerang(monster1.getAtt());
+                p += "Hp monster1: " + String.valueOf(monster1.getHp()) + "\n";
+                textHistory.setText(p);
+                System.out.println("Attack kita " + monster1.getAtt());
+                System.out.println("Attack enemy " + enemy1.getAttack());
+            }
+            else if(monster1.getHp() <= 0 && enemy1.getHP()>0){
+                System.out.println("Kalah");
+            }
+            else if(monster1.getHp() > 0 && enemy1.getHP()<=0){
+                System.out.println("Menang");
+            }
         }
-
-
     }
-
-//    public int getRandomDamage(Monster monster){
-//        return (int)Math.floor(Math.random()*monster.getAtt()+5);
-//    }
-//    public int getRandomComboDamage(Monster monster){
-//        return (int)Math.floor(Math.random()*monster.getAtt()*2)+5;
-//    }
-//
-//    public void attackMonster(Monster monster){
-//        Random random = new Random();
-//        int x = random.nextInt(3);
-//        int dmg = getRandomDamage(monster);
-//        if (x==0){
-//            enemy1.kenaSerang(dmg);
-//            historytext.appendText("/n"+monster.getName()+" hit "+enemy1.getName()+" with "+dmg+" damage");
-//        }
-//        else if (x==1){
-//            enemy2.kenaSerang(dmg);
-//            historytext.appendText("/n"+monster.getName()+" hit "+enemy2.getName()+" with "+dmg+" damage");
-//        }
-//        else {
-//            enemy3.kenaSerang(dmg);
-//            historytext.appendText("/n"+monster.getName()+" hit "+enemy3.getName()+" with "+dmg+" damage");
-//        }
-//    }
-//
-//    public void comboAttack(Monster monster){
-//        Random random = new Random();
-//        int x = random.nextInt(3);
-//        if (x==0){
-//            enemy1.kenaSerang(getRandomComboDamage(monster));
-//        }
-//        else if (x==1){
-//            enemy2.kenaSerang(getRandomComboDamage(monster));
-//        }
-//        else {
-//            enemy3.kenaSerang(getRandomComboDamage(monster));
-//        }
-//    }
-
 
 
     public void cmbMonster2(ActionEvent actionEvent) {
+        monster2 = new Monster();
         monster2 = comboMonster2.getValue();
+        System.out.println("Att");
+        System.out.println(monster2.getAtt());
+        lblHp2.setText(String.valueOf(monster2.getAtt()));
     }
 
     public void cmbMonster3(ActionEvent actionEvent) {
         monster3 = comboMonster3.getValue();
     }
-
 
 
     public void fightAction2(ActionEvent actionEvent) {
@@ -206,15 +177,13 @@ public class MainController implements Initializable {
         dialog.setTitle("Add new element");
         dialog.setHeaderText("Confirmation");
         dialog.setContentText("Element baru:");
-        Optional <String> result = dialog.showAndWait();
+        Optional<String> result = dialog.showAndWait();
         TextField input = dialog.getEditor();
         Elemen e = new Elemen();
         e.setName(input.getText());
         ElemenDao elemenDao = new ElemenDao();
         elemenDao.addData(e);
     }
-
-
 
 
     public void addEnemy(ActionEvent actionEvent) throws IOException {
@@ -248,113 +217,115 @@ public class MainController implements Initializable {
         new_stage.show();
     }
 
-    public Double cekElemen(Monster m,Enemy e){
-        switch (m.getElement()){
-            case 1 : //es
-                switch (e.getElement()){
-                    case 2 :  //api
-                    case 4 : //batu
-                    case 5 :  //listrik
-                        return 0.5;
+    public Double cekElemen(Monster m, Enemy e) {
+        double d=0.8;
+        switch (m.getElement()) {
+            case 1: //es
+                switch (e.getElement()) {
+                    case 2: //api
+                    case 4: //batu
+                    case 5: //listrik
+                        d=0.5;
+                        break;
+
+                    case 6: //air
+                        d= 2.0;
                     break;
 
-                    case 6 : //air
-                        return 2.0;
-                    break;
-
-                    case 3 : //angin
-                        return 1.0;
+                    case 3: //angin
+                        d=1.0;
                     break;
                 }
                 break;
-            case 2 : //api
-                switch (e.getElement()){
-                    case 1 : //es
-                    case 3 : //angin
-                        return 2.0;
+            case 2: //api
+                switch (e.getElement()) {
+                    case 1: //es
+                    case 3: //angin
+                        d= 2.0;
                     break;
 
-                    case 6 : //air
-                    case 4 : //batu
-                        return 0.5;
+                    case 6: //air
+                    case 4: //batu
+                        d= 0.5;
                     break;
 
-                    case 5 : //listrik
-                        return 1.0;
+                    case 5: //listrik
+                        d= 1.0;
                     break;
                 }
                 break;
-            case 3 : //angin
-                switch (e.getElement()){
-                    case 1 : //es
-                    case 4 : //batu
-                    case 5 : //listrik
-                        return 2.0;
+            case 3: //angin
+                switch (e.getElement()) {
+                    case 1: //es
+                    case 4: //batu
+                    case 5: //listrik
+                        d= 2.0;
                     break;
 
-                    case 2 : //api
-                        return 0.5;
+                    case 2: //api
+                        d= 0.5;
                     break;
 
-                    case 6 : //air
-                        return 1.0;
-                    break;
-                }
-                break;
-
-            case 4 : //batu
-                switch (e.getElement()){
-                    case 6 : //air
-                        return 2.0;
-                    break;
-
-                    case 5 : //listrik
-                        return 0.5;
-                    break;
-
-                    case 1 : //es
-                    case 2 : //api
-                    case 3 : //angin
-                        return 1.0;
+                    case 6: //air
+                        d= 1.0;
                     break;
                 }
                 break;
 
-            case 5 : //listrik
-                switch (e.getElement()){
-                    case 1 : //es
-                    case 6 : //air
-                        return 2.0;
+            case 4: //batu
+                switch (e.getElement()) {
+                    case 6: //air
+                        d= 2.0;
                     break;
 
-                    case 2 : //api
-                    case 3 : //angin
-                        return 1.0;
+                    case 5: //listrik
+                        d= 0.5;
                     break;
 
-                    case 4 : //batu
-                        return 0.5;
+                    case 1: //es
+                    case 2: //api
+                    case 3: //angin
+                        d= 1.0;
                     break;
                 }
                 break;
 
-            case 6 : //air
-                switch (e.getElement()){
-                    case 2 : //api
-                    case 4 : //batu
-                        return 2.0;
+            case 5: //listrik
+                switch (e.getElement()) {
+                    case 1: //es
+                    case 6: //air
+                        d= 2.0;
                     break;
 
-                    case 1 : //es
-                    case 5 : //listrik
-                        return 0.5;
+                    case 2: //api
+                    case 3: //angin
+                        d= 1.0;
                     break;
 
-                    case 3 : //angin
-                        return 1.0;
+                    case 4: //batu
+                        d= 0.5;
+                    break;
+                }
+                break;
+
+            case 6: //air
+                switch (e.getElement()) {
+                    case 2: //api
+                    case 4: //batu
+                        d= 2.0;
+                    break;
+
+                    case 1: //es
+                    case 5: //listrik
+                        d= 0.5;
+                    break;
+
+                    case 3: //angin
+                        d= 1.0;
                     break;
                 }
                 break;
         }
+        return d;
     }
 }
