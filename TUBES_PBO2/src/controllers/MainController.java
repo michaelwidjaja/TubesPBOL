@@ -100,11 +100,14 @@ public class MainController implements Initializable {
 
     public void fightAction1(ActionEvent actionEvent)    {
         monster1 = comboMonster1.getValue();
+        String p = new String();
         if(monster1!=null){
             System.out.println(monster1);
-            textHistory.setText("Hp monster: "+String.valueOf(monster1.getHp()));
+            p+="Hp monster: "+String.valueOf(monster1.getHp())+"\n";
+            textHistory.setText(p);
             monster1.kenaSerang(enemy1.getAttack());
-            textHistory.setText("Hp monster: "+String.valueOf(monster1.getHp()));
+            p+="Hp monster: "+String.valueOf(monster1.getHp())+"\n";
+            textHistory.setText(p);
             System.out.println("Attack kita"+monster1.getAtt());
             System.out.println("Attack enemy"+enemy1.getAttack());
         }
