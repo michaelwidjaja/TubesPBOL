@@ -13,9 +13,9 @@
     <children>
       <AnchorPane prefHeight="509.0" prefWidth="347.0" style="-fx-background-color: #569efc;">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="347.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="349.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../OneDrive/Desktop/Awan%20aja" />
+                  <Image url="@img/awan" />
                </image>
             </ImageView>
          </children>
