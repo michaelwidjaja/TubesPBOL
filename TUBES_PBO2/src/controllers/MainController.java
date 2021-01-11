@@ -39,7 +39,6 @@ public class MainController implements Initializable {
     public Button btnLogout;
     private LoginController main;
     public int id;
-    public TextArea historytext;
     private Monster monster1;
     private Monster monster2;
     private Monster monster3;
@@ -66,6 +65,8 @@ public class MainController implements Initializable {
         enemy3.setId(rand3);
         EnemyDao dao3=new EnemyDao();
         enemy3=dao3.search(enemy3);
+
+        monster1=new Monster();
     }
 
     public void setmain(LoginController main) {
@@ -90,21 +91,24 @@ public class MainController implements Initializable {
     }
 
     public void cmbMonster1(ActionEvent actionEvent) {
+        monster1=new Monster();
         monster1 = comboMonster1.getValue();
         System.out.println("Att");
         System.out.println(monster1.getAtt());
         lblHp1.setText(String.valueOf(monster1.getAtt()));
-        System.out.println("random");
-        System.out.println(getRandomenemy());
     }
 
     public void fightAction1(ActionEvent actionEvent)    {
         monster1 = comboMonster1.getValue();
-        historytext.setText("Hp monster: "+String.valueOf(monster1.getHp()));
-        monster1.kenaSerang(enemy1.getAttack());
-        historytext.setText("Hp monster: "+String.valueOf(monster1.getHp()));
-        System.out.println("Attack kita"+monster1.getAtt());
-        System.out.println("Attack enemy"+enemy1.getAttack());
+        if(monster1!=null){
+            System.out.println(monster1);
+            textHistory.setText("Hp monster: "+String.valueOf(monster1.getHp()));
+            monster1.kenaSerang(enemy1.getAttack());
+            textHistory.setText("Hp monster: "+String.valueOf(monster1.getHp()));
+            System.out.println("Attack kita"+monster1.getAtt());
+            System.out.println("Attack enemy"+enemy1.getAttack());
+        }
+
 
     }
 
