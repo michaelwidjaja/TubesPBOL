@@ -40,6 +40,9 @@ public class MainController implements Initializable {
     public Button basic1;
     public Button basic2;
     public Button basic3;
+    public Button btnCombo1;
+    public Button btnCombo2;
+    public Button btnCombo3;
     private LoginController main;
     public int id;
     private Monster monster1;
@@ -96,6 +99,7 @@ public class MainController implements Initializable {
 
     public void cmbMonster1(ActionEvent actionEvent) {
         basic1.setDisable(false);
+        btnCombo1.setDisable(false);
         textHistory.setText("");
         if(enemy1==null){
             int rand1 = getRandomenemy();
@@ -141,6 +145,7 @@ public class MainController implements Initializable {
                 enemy1=null;
                 monster1=null;
                 basic1.setDisable(true);
+                btnCombo1.setDisable(true);
                 textHistory.setText(p);
                 p="";
             }
@@ -151,6 +156,7 @@ public class MainController implements Initializable {
                 enemy1=null;
                 monster1=null;
                 basic1.setDisable(true);
+                btnCombo1.setDisable(true);
                 textHistory.setText(p);
                 p="";
             }
