@@ -37,6 +37,9 @@ public class MainController implements Initializable {
     public TextArea textHistory;
     public Button btnAddEnemy;
     public Button btnLogout;
+    public Button basic1;
+    public Button basic2;
+    public Button basic3;
     private LoginController main;
     public int id;
     private Monster monster1;
@@ -92,6 +95,15 @@ public class MainController implements Initializable {
     }
 
     public void cmbMonster1(ActionEvent actionEvent) {
+        basic1.setDisable(false);
+        textHistory.setText("");
+        if(enemy1==null){
+            int rand1 = getRandomenemy();
+            enemy1 = new Enemy();
+            enemy1.setId(rand1);
+            EnemyDao dao1 = new EnemyDao();
+            enemy1 = dao1.search(enemy1);
+        }
         System.out.println("Ini nomor enenmy monster = "+enemy1.getId());
         System.out.println("Ini attacknya = "+ enemy1.getAttack());
         monster1 = new Monster();
@@ -105,6 +117,8 @@ public class MainController implements Initializable {
         monster1.setAtt(m1);
         enemy1.setAttack(e1);
         System.out.println("Ini attacknya setelah di ubah = "+ enemy1.getAttack());
+        System.out.println(monster1.getHp());
+        System.out.println(enemy1.getHP());
         comboMonster1.setDisable(true);
 
     }
@@ -118,19 +132,29 @@ public class MainController implements Initializable {
                 textHistory.setText(p);
                 monster1.kenaSerang(enemy1.getAttack());
                 enemy1.kenaSerang(monster1.getAtt());
-
+                textHistory.setText(p);
             }
             else if(monster1.getHp() <= 0 && enemy1.getHP()>0){
                 p += "Kalah \n";
                 System.out.println("Kalah");
                 comboMonster1.setDisable(false);
+                enemy1=null;
+                monster1=null;
+                basic1.setDisable(true);
+                textHistory.setText(p);
+                p="";
             }
             else if(monster1.getHp() > 0 && enemy1.getHP()<=0){
                 System.out.println("Menang");
                 p += "Menang \n";
                 comboMonster1.setDisable(false);
+                enemy1=null;
+                monster1=null;
+                basic1.setDisable(true);
+                textHistory.setText(p);
+                p="";
             }
-            textHistory.setText(p);
+
         }
     }
 
