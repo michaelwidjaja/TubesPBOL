@@ -9,31 +9,51 @@
 
 <AnchorPane id="AnchorPane" prefHeight="494.0" prefWidth="695.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
     <children>
-      <AnchorPane opacity="0.91" prefHeight="509.0" prefWidth="347.0" style="-fx-background-color: #200011;" />
-      <AnchorPane layoutX="347.0" layoutY="-6.0" prefHeight="515.0" prefWidth="355.0" style="-fx-background-color: #f299cb;">
+      <AnchorPane prefHeight="509.0" prefWidth="347.0" style="-fx-background-color: #569efc;">
          <children>
-            <Label layoutX="112.0" layoutY="57.0" prefHeight="50.0" prefWidth="124.0" text="Log In" textFill="#ffe100e5" textOverrun="CENTER_ELLIPSIS">
+            <AnchorPane layoutX="-1.0" layoutY="-3.0" prefHeight="267.0" prefWidth="355.0" style="-fx-background-color: #367ad9;" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="347.0" layoutY="-6.0" prefHeight="515.0" prefWidth="355.0" style="-fx-background-color: #367ad9;">
+         <children>
+            <Label layoutX="41.0" layoutY="69.0" prefHeight="50.0" prefWidth="242.0" text="Welcome back," textFill="#b1d1fae5" textOverrun="CENTER_ELLIPSIS">
                <font>
-                  <Font name="Century Gothic" size="38.0" />
+                  <Font name="Courier New Italic" size="30.0" />
                </font>
             </Label>
-                <TextField fx:id="txtUsername" layoutX="41.0" layoutY="159.0" prefHeight="34.0" prefWidth="275.0" promptText="Username" />
-                <PasswordField fx:id="txtPassword" layoutX="41.0" layoutY="210.0" prefHeight="34.0" prefWidth="275.0" promptText="Password" stylesheets="@../styling/fullpackstyling.css" />
-                <Button layoutX="37.0" layoutY="361.0" mnemonicParsing="false" onAction="#btnSignup" prefHeight="34.0" prefWidth="275.0" stylesheets="@../styling/fullpackstyling.css" text="Sign up" />
-                <Label alignment="CENTER" layoutX="159.0" layoutY="325.0" prefHeight="23.0" prefWidth="31.0" style="-fx-background-color: #fff;" text="Or" textFill="#5b5a5a">
-                    <font>
-                        <Font name="Segoe UI" size="12.0" />
-                    </font>
+                <TextField fx:id="txtUsername" layoutX="41.0" layoutY="159.0" prefHeight="34.0" prefWidth="275.0" promptText="Username" style="-fx-border-color: #367ad9; -fx-background-radius: 5px; -fx-border-radius: 5px;">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </TextField>
+                <PasswordField fx:id="txtPassword" layoutX="41.0" layoutY="210.0" prefHeight="34.0" prefWidth="275.0" promptText="Password" style="-fx-border-color: #367ad9; -fx-background-radius: 5px; -fx-border-radius: 5px;" stylesheets="@../styling/fullpackstyling.css">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </PasswordField>
+                <Button layoutX="41.0" layoutY="365.0" mnemonicParsing="false" onAction="#btnSignup" prefHeight="34.0" prefWidth="275.0" stylesheets="@../styling/fullpackstyling.css" text="Sign up">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+                <Label alignment="CENTER" layoutX="163.0" layoutY="326.0" prefHeight="23.0" prefWidth="31.0" style="-fx-background-color: #367ad9;" text="Or">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
                 </Label>
                 <Label fx:id="lblErrors" alignment="CENTER" layoutX="41.0" layoutY="251.0" prefHeight="23.0" prefWidth="275.0" textFill="#ff6354">
                     <font>
                         <Font name="Segoe UI" size="10.0" />
                     </font>
                 </Label>
-                <Button fx:id="signin" layoutX="41.0" layoutY="274.0" mnemonicParsing="false" onAction="#btnSignin" prefHeight="34.0" prefWidth="275.0" stylesheets="@../styling/fullpackstyling.css" text="Sign in" />
-            <Label layoutX="115.0" layoutY="57.0" prefHeight="50.0" prefWidth="124.0" text="Log In" textFill="#ff00aee5" textOverrun="CENTER_ELLIPSIS">
+                <Button fx:id="signin" layoutX="41.0" layoutY="274.0" mnemonicParsing="false" onAction="#btnSignin" prefHeight="34.0" prefWidth="275.0" stylesheets="@../styling/fullpackstyling.css" text="Sign in">
                <font>
-                  <Font name="Century Gothic" size="38.0" />
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
+            <Label layoutX="42.0" layoutY="109.0" prefHeight="50.0" prefWidth="184.0" text="Sign in to continue" textFill="#b1d1fae5" textOverrun="CENTER_ELLIPSIS">
+               <font>
+                  <Font name="Times New Roman Italic" size="18.0" />
                </font>
             </Label>
          </children>
