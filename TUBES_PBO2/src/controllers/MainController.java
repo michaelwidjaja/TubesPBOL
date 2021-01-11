@@ -247,4 +247,114 @@ public class MainController implements Initializable {
         new_stage.setTitle("");
         new_stage.show();
     }
+
+    public Double cekElemen(Monster m,Enemy e){
+        switch (m.getElement()){
+            case 1 : //es
+                switch (e.getElement()){
+                    case 2 :  //api
+                    case 4 : //batu
+                    case 5 :  //listrik
+                        return 0.5;
+                    break;
+
+                    case 6 : //air
+                        return 2.0;
+                    break;
+
+                    case 3 : //angin
+                        return 1.0;
+                    break;
+                }
+                break;
+            case 2 : //api
+                switch (e.getElement()){
+                    case 1 : //es
+                    case 3 : //angin
+                        return 2.0;
+                    break;
+
+                    case 6 : //air
+                    case 4 : //batu
+                        return 0.5;
+                    break;
+
+                    case 5 : //listrik
+                        return 1.0;
+                    break;
+                }
+                break;
+            case 3 : //angin
+                switch (e.getElement()){
+                    case 1 : //es
+                    case 4 : //batu
+                    case 5 : //listrik
+                        return 2.0;
+                    break;
+
+                    case 2 : //api
+                        return 0.5;
+                    break;
+
+                    case 6 : //air
+                        return 1.0;
+                    break;
+                }
+                break;
+
+            case 4 : //batu
+                switch (e.getElement()){
+                    case 6 : //air
+                        return 2.0;
+                    break;
+
+                    case 5 : //listrik
+                        return 0.5;
+                    break;
+
+                    case 1 : //es
+                    case 2 : //api
+                    case 3 : //angin
+                        return 1.0;
+                    break;
+                }
+                break;
+
+            case 5 : //listrik
+                switch (e.getElement()){
+                    case 1 : //es
+                    case 6 : //air
+                        return 2.0;
+                    break;
+
+                    case 2 : //api
+                    case 3 : //angin
+                        return 1.0;
+                    break;
+
+                    case 4 : //batu
+                        return 0.5;
+                    break;
+                }
+                break;
+
+            case 6 : //air
+                switch (e.getElement()){
+                    case 2 : //api
+                    case 4 : //batu
+                        return 2.0;
+                    break;
+
+                    case 1 : //es
+                    case 5 : //listrik
+                        return 0.5;
+                    break;
+
+                    case 3 : //angin
+                        return 1.0;
+                    break;
+                }
+                break;
+        }
+    }
 }
