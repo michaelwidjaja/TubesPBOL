@@ -67,7 +67,6 @@ public class MainController implements Initializable {
         EnemyDao dao3 = new EnemyDao();
         enemy3 = dao3.search(enemy3);
 
-        monster1 = new Monster();
     }
 
     public void setmain(LoginController main) {
@@ -93,33 +92,45 @@ public class MainController implements Initializable {
     }
 
     public void cmbMonster1(ActionEvent actionEvent) {
+        System.out.println("Ini nomor enenmy monster = "+enemy1.getId());
+        System.out.println("Ini attacknya = "+ enemy1.getAttack());
         monster1 = new Monster();
         monster1 = comboMonster1.getValue();
-        System.out.println("Att");
-        System.out.println(monster1.getAtt());
         lblHp1.setText(String.valueOf(monster1.getAtt()));
+
+        double elM=cekElemen(monster1.getElement(),enemy1.getElement());
+        double elE=cekElemen(enemy1.getElement(),monster1.getElement());
+        int m1= (int) (monster1.getAtt()*elM);
+        int e1= (int) (enemy1.getAttack()*elE);
+        monster1.setAtt(m1);
+        enemy1.setAttack(e1);
+        System.out.println("Ini attacknya setelah di ubah = "+ enemy1.getAttack());
+        comboMonster1.setDisable(true);
+
     }
 
     public void fightAction1(ActionEvent actionEvent) {
         monster1 = comboMonster1.getValue();
         if (monster1 != null) {
             if (monster1.getHp() > 0 && enemy1.getHP()>0) {
-                System.out.println(monster1);
                 p += "Hp monster1: " + String.valueOf(monster1.getHp()) + "\n";
+                p += "Hp enemy1: " + String.valueOf(enemy1.getHP()) + "\n";
                 textHistory.setText(p);
                 monster1.kenaSerang(enemy1.getAttack());
                 enemy1.kenaSerang(monster1.getAtt());
-                p += "Hp monster1: " + String.valueOf(monster1.getHp()) + "\n";
-                textHistory.setText(p);
-                System.out.println("Attack kita " + monster1.getAtt());
-                System.out.println("Attack enemy " + enemy1.getAttack());
+
             }
             else if(monster1.getHp() <= 0 && enemy1.getHP()>0){
+                p += "Kalah \n";
                 System.out.println("Kalah");
+                comboMonster1.setDisable(false);
             }
             else if(monster1.getHp() > 0 && enemy1.getHP()<=0){
                 System.out.println("Menang");
+                p += "Menang \n";
+                comboMonster1.setDisable(false);
             }
+            textHistory.setText(p);
         }
     }
 
@@ -203,6 +214,12 @@ public class MainController implements Initializable {
 
     public void Logout(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) btnLogout.getScene().getWindow();
+        monster1=null;
+        monster2=null;
+        monster3=null;
+        enemy1=null;
+        enemy2=null;
+        enemy3=null;
         stage.close();
 
         Stage new_stage = new Stage();
@@ -210,6 +227,7 @@ public class MainController implements Initializable {
         Parent root = loader.load();
         LoginController controler = loader.getController();
         controler.setmain(this);
+        controler.iduser=0;
         Scene scene1 = new Scene(root);
 
         new_stage.setScene(scene1);
@@ -217,11 +235,11 @@ public class MainController implements Initializable {
         new_stage.show();
     }
 
-    public Double cekElemen(Monster m, Enemy e) {
+    public Double cekElemen(int m, int e) {
         double d=0.8;
-        switch (m.getElement()) {
+        switch (m) {
             case 1: //es
-                switch (e.getElement()) {
+                switch (e) {
                     case 2: //api
                     case 4: //batu
                     case 5: //listrik
@@ -238,7 +256,7 @@ public class MainController implements Initializable {
                 }
                 break;
             case 2: //api
-                switch (e.getElement()) {
+                switch (e) {
                     case 1: //es
                     case 3: //angin
                         d= 2.0;
@@ -255,7 +273,7 @@ public class MainController implements Initializable {
                 }
                 break;
             case 3: //angin
-                switch (e.getElement()) {
+                switch (e) {
                     case 1: //es
                     case 4: //batu
                     case 5: //listrik
@@ -273,7 +291,7 @@ public class MainController implements Initializable {
                 break;
 
             case 4: //batu
-                switch (e.getElement()) {
+                switch (e) {
                     case 6: //air
                         d= 2.0;
                     break;
@@ -291,7 +309,7 @@ public class MainController implements Initializable {
                 break;
 
             case 5: //listrik
-                switch (e.getElement()) {
+                switch (e) {
                     case 1: //es
                     case 6: //air
                         d= 2.0;
@@ -309,7 +327,7 @@ public class MainController implements Initializable {
                 break;
 
             case 6: //air
-                switch (e.getElement()) {
+                switch (e) {
                     case 2: //api
                     case 4: //batu
                         d= 2.0;
