@@ -5,13 +5,23 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="180.0" prefWidth="404.0" stylesheets="@../styling/fullpackstyling.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddMonsterController">
+<AnchorPane prefHeight="180.0" prefWidth="404.0" style="-fx-background-color: #569efc;" stylesheets="@../styling/fullpackstyling.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddMonsterController">
    <children>
-      <Label layoutX="70.0" layoutY="64.0" prefHeight="17.0" prefWidth="89.0" text="Nama monster" />
-      <Label layoutX="70.0" layoutY="94.0" prefHeight="17.0" prefWidth="89.0" text="Element" />
-      <ComboBox fx:id="cmbElemenBaru" layoutX="184.0" layoutY="90.0" prefWidth="150.0" />
-      <TextField fx:id="txtNamaMonsterBaru" layoutX="184.0" layoutY="60.0" />
-      <Button fx:id="btnTmbhMonster" layoutX="69.0" layoutY="125.0" mnemonicParsing="false" onAction="#addMonsterBaru" prefHeight="25.0" prefWidth="267.0" text="Tambah Monster Baru" />
+      <Label layoutX="38.0" layoutY="50.0" prefHeight="24.0" prefWidth="205.0" text="Monster Name">
+         <font>
+            <Font name="Courier New Bold Italic" size="20.0" />
+         </font></Label>
+      <Label layoutX="38.0" layoutY="77.0" prefHeight="28.0" prefWidth="136.0" text="Element">
+         <font>
+            <Font name="Courier New Bold Italic" size="20.0" />
+         </font></Label>
+      <ComboBox fx:id="cmbElemenBaru" layoutX="225.0" layoutY="78.0" prefWidth="150.0" style="-fx-background-color: #e1e9f5; -fx-border-radius: 5px;" />
+      <TextField fx:id="txtNamaMonsterBaru" layoutX="225.0" layoutY="50.0" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #e1e9f5; -fx-border-radius: 5px;" />
+      <Button fx:id="btnTmbhMonster" layoutX="33.0" layoutY="129.0" mnemonicParsing="false" onAction="#addMonsterBaru" prefHeight="37.0" prefWidth="345.0" style="-fx-background-color: #e1e9f5; -fx-border-radius: 5px;" text="Add New Monster">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font></Button>
    </children>
 </AnchorPane>
