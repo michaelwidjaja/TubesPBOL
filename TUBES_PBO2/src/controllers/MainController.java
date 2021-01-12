@@ -437,9 +437,18 @@ public class MainController implements Initializable {
         Optional<String> result = dialog.showAndWait();
         TextField input = dialog.getEditor();
         Elemen e = new Elemen();
-        e.setName(input.getText());
-        ElemenDao elemenDao = new ElemenDao();
-        elemenDao.addData(e);
+        if(input.getText().isEmpty())
+        {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Please fill element baru");
+            alert.setHeaderText("Eror");
+            alert.showAndWait();
+        }
+        else {
+            e.setName(input.getText());
+            ElemenDao elemenDao = new ElemenDao();
+            elemenDao.addData(e);
+        }
     }
 
 
