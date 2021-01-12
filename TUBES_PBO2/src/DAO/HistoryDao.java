@@ -14,10 +14,10 @@ public class HistoryDao implements daoInterface<History> {
     public int addData(History data) {
         int result = 0;
         try {
-            String query = "INSERT INTO history(tanggal, id_user, win/lose) values(?, ?, ?);";
+            String query = "INSERT INTO history(tanggal, id_user, result) values(?, ?, ?)";
             PreparedStatement ps;
             ps = JDBCConnection.getConnection().prepareStatement(query);
-            ps.setDate(1, (Date) data.getTanggal());
+            ps.setString(1, data.getTanggal());
             ps.setInt(2,data.getId_user());
             ps.setString(3,data.getWinlose());
             result = ps.executeUpdate();

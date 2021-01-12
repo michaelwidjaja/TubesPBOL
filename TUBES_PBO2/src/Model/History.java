@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class History {
     private int id;
-    private Date tanggal;
+    private String tanggal;
     private int id_user;
     private String winlose;
 
@@ -16,11 +16,11 @@ public class History {
         this.id = id;
     }
 
-    public Date getTanggal() {
+    public String getTanggal() {
         return tanggal;
     }
 
-    public Date setTanggal(Date tanggal) {
+    public void setTanggal(String tanggal) {
         this.tanggal = tanggal;
     }
 

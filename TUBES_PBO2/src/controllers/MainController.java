@@ -616,14 +616,15 @@ public class MainController implements Initializable {
 //        Date date = new Date(timestamp.getTime());
 //        System.out.println(date);
 
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date();
         System.out.println(dateFormat.format(date));
         HistoryDao hDao = new HistoryDao();
         History h = new History();
         h.setId_user(id);
-        h.setTanggal((Date)dateFormat);
+        h.setTanggal(dateFormat.format(date));
         h.setWinlose(result);
+
         hDao.addData(h);
     }
 }
