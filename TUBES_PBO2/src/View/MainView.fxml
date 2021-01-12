@@ -27,16 +27,21 @@
                   <Font name="Courier New Italic" size="30.0" />
                </font>
             </Label>
-                <TextField fx:id="txtUsername" layoutX="41.0" layoutY="159.0" prefHeight="34.0" prefWidth="275.0" promptText="Username" style="-fx-border-color: #367ad9; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-background-color: #e1e9f5;">
+                <TextField fx:id="txtUsername" layoutX="41.0" layoutY="159.0" prefHeight="34.0" prefWidth="275.0" promptText="Username" style="-fx-border-color: #367ad9; -fx-background-radius: 10; -fx-border-radius: 5px; -fx-background-color: #e1e9f5;">
                <font>
                   <Font name="System Italic" size="12.0" />
                </font>
             </TextField>
-                <PasswordField fx:id="txtPassword" layoutX="41.0" layoutY="210.0" prefHeight="34.0" prefWidth="275.0" promptText="Password" style="-fx-border-color: #367ad9; -fx-background-radius: 5px; -fx-border-radius: 5px; -fx-background-color: #e1e9f5;" stylesheets="@../styling/fullpackstyling.css">
+                <PasswordField fx:id="txtPassword" layoutX="41.0" layoutY="210.0" prefHeight="34.0" prefWidth="275.0" promptText="Password" style="-fx-border-color: #367ad9; -fx-background-radius: 10; -fx-border-radius: 5px; -fx-background-color: #e1e9f5;" stylesheets="@../styling/fullpackstyling.css">
                <font>
                   <Font name="System Italic" size="12.0" />
                </font>
             </PasswordField>
+                <Button fx:id="signin" layoutX="41.0" layoutY="274.0" mnemonicParsing="false" onAction="#btnSignin" prefHeight="34.0" prefWidth="275.0" style="-fx-background-color: #e1e9f5;" stylesheets="@../styling/fullpackstyling.css" text="Sign in">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Button>
                 <Button layoutX="41.0" layoutY="365.0" mnemonicParsing="false" onAction="#btnSignup" prefHeight="34.0" prefWidth="275.0" style="-fx-background-color: #e1e9f5;" stylesheets="@../styling/fullpackstyling.css" text="Sign up">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
@@ -52,11 +57,6 @@
                         <Font name="Segoe UI" size="10.0" />
                     </font>
                 </Label>
-                <Button fx:id="signin" layoutX="41.0" layoutY="274.0" mnemonicParsing="false" onAction="#btnSignin" prefHeight="34.0" prefWidth="275.0" style="-fx-background-color: #e1e9f5;" stylesheets="@../styling/fullpackstyling.css" text="Sign in">
-               <font>
-                  <Font name="System Bold Italic" size="12.0" />
-               </font>
-            </Button>
             <Label layoutX="42.0" layoutY="109.0" prefHeight="50.0" prefWidth="184.0" text="Sign in to continue" textFill="#e1e9f5e5" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font name="Times New Roman Italic" size="18.0" />

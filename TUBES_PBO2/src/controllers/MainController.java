@@ -440,8 +440,8 @@ public class MainController implements Initializable {
         if(input.getText().isEmpty())
         {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Please fill element baru");
-            alert.setHeaderText("Eror");
+            alert.setTitle("Error");
+            alert.setHeaderText("Element cannot be empty");
             alert.showAndWait();
         }
         else {
