@@ -6,9 +6,19 @@ public class Monster {
     private int id;
     private String name;
     private int hp;
+    private int hpsementara;
     private int att;
     private int element;
     private int User_idpengguna;
+
+    public int getHpsementara() {
+        return hpsementara;
+    }
+
+    public void setHpsementara(int hpsementara) {
+        this.hpsementara = hpsementara;
+    }
+
 
     public int getUser_idpengguna() {
         return User_idpengguna;
@@ -19,7 +29,7 @@ public class Monster {
     }
 
     public void kenaSerang(int n){
-        this.hp -= n;
+        this.hpsementara -= n;
     }
 
 

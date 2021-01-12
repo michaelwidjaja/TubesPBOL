@@ -62,16 +62,19 @@ public class MainController implements Initializable {
         enemy1.setId(rand1);
         EnemyDao dao1 = new EnemyDao();
         enemy1 = dao1.search(enemy1);
+        enemy1.setHPSementara(enemy1.getHP());
 
         enemy2 = new Enemy();
         enemy2.setId(rand2);
         EnemyDao dao2 = new EnemyDao();
         enemy2 = dao2.search(enemy2);
+        enemy2.setHPSementara(enemy2.getHP());
 
         enemy3 = new Enemy();
         enemy3.setId(rand3);
         EnemyDao dao3 = new EnemyDao();
         enemy3 = dao3.search(enemy3);
+        enemy3.setHPSementara(enemy3.getHP());
 
     }
 
@@ -107,11 +110,13 @@ public class MainController implements Initializable {
             enemy1.setId(rand1);
             EnemyDao dao1 = new EnemyDao();
             enemy1 = dao1.search(enemy1);
+            enemy1.setHPSementara(enemy1.getHP());
         }
         System.out.println("Ini nomor enenmy monster = "+enemy1.getId());
         System.out.println("Ini attacknya = "+ enemy1.getAttack());
         monster1 = new Monster();
         monster1 = comboMonster1.getValue();
+        monster1.setHpsementara(monster1.getHp());
         lblHp1.setText(String.valueOf(monster1.getAtt()));
 
         double elM=cekElemen(monster1.getElement(),enemy1.getElement());
@@ -130,15 +135,15 @@ public class MainController implements Initializable {
     public void fightAction1(ActionEvent actionEvent) {
         monster1 = comboMonster1.getValue();
         if (monster1 != null) {
-            if (monster1.getHp() > 0 && enemy1.getHP()>0) {
-                p += "Hp monster1: " + String.valueOf(monster1.getHp()) + "\n";
-                p += "Hp enemy1: " + String.valueOf(enemy1.getHP()) + "\n";
+            if (monster1.getHpsementara() > 0 && enemy1.getHPSementara()>0) {
+                p += "Hp monster1: " + String.valueOf(monster1.getHpsementara()) + "\n";
+                p += "Hp enemy1: " + String.valueOf(enemy1.getHPSementara()) + "\n";
                 textHistory.setText(p);
                 monster1.kenaSerang(enemy1.getAttack());
                 enemy1.kenaSerang(monster1.getAtt());
                 textHistory.setText(p);
             }
-            else if(monster1.getHp() <= 0 && enemy1.getHP()>0){
+            else if(monster1.getHpsementara() <= 0 && enemy1.getHPSementara()>0){
                 p += "Kalah \n";
                 System.out.println("Kalah");
                 comboMonster1.setDisable(false);
@@ -149,7 +154,7 @@ public class MainController implements Initializable {
                 textHistory.setText(p);
                 p="";
             }
-            else if(monster1.getHp() > 0 && enemy1.getHP()<=0){
+            else if(monster1.getHpsementara() > 0 && enemy1.getHPSementara()<=0){
                 System.out.println("Menang");
                 p += "Menang \n";
                 comboMonster1.setDisable(false);

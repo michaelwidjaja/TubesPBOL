@@ -4,9 +4,17 @@ public class Enemy {
     private int Id;
     private String Name;
     private int HP;
+    private int HPSementara;
     private int Attack;
     private int element;
 
+    public int getHPSementara() {
+        return HPSementara;
+    }
+
+    public void setHPSementara(int HPSementara) {
+        this.HPSementara = HPSementara;
+    }
 
 
     public int getId() {
@@ -51,6 +59,6 @@ public class Enemy {
 
 
     public void kenaSerang(int n){
-        this.HP -= n;
+        this.HPSementara -= n;
     }
 }
