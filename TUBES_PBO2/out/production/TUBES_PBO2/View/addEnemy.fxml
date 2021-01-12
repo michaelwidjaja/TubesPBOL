@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="180.0" prefWidth="404.0" style="-fx-background-color: #569efc;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddEnemyController">
    <children>
-      <Label layoutX="38.0" layoutY="50.0" text="Monster Name">
+      <Label layoutX="38.0" layoutY="46.0" text="Monster Name">
          <font>
             <Font name="Courier New Bold Italic" size="20.0" />
          </font></Label>
@@ -17,7 +17,7 @@
          <font>
             <Font name="Courier New Bold Italic" size="21.0" />
          </font></Label>
-      <TextField fx:id="txtNamaEnemyBaru" layoutX="225.0" layoutY="50.0" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #e1e9f5; -fx-border-radius: 5px;" />
+      <TextField fx:id="txtNamaEnemyBaru" layoutX="225.0" layoutY="45.0" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #e1e9f5; -fx-border-radius: 5px;" />
       <ComboBox fx:id="txtCmbNewElement" layoutX="225.0" layoutY="78.0" prefWidth="150.0" style="-fx-background-color: #e1e9f5; -fx-border-radi: 5px;" />
       <Button fx:id="btnTmbhEnemy" layoutX="33.0" layoutY="129.0" mnemonicParsing="false" onAction="#addEnemyBaru" prefHeight="37.0" prefWidth="353.0" style="-fx-background-color: #e1e9f5; -fx-border-radius: 5px;" text="Add New Monster">
          <font>

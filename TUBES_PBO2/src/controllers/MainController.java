@@ -1,12 +1,10 @@
 package controllers;
 
 import DAO.EnemyDao;
-import Model.Enemy;
+import DAO.HistoryDao;
+import Model.*;
 import DAO.ElemenDao;
 import DAO.MonsterDao;
-import Model.Elemen;
-import Model.Monster;
-import Model.UserEntity;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,6 +19,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Optional;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -142,6 +144,7 @@ public class MainController implements Initializable {
                 monster1.kenaSerang(enemy1.getAttack());
                 enemy1.kenaSerang(monster1.getAtt());
                 textHistory.setText(p);
+
             }
             else if(monster1.getHpsementara() <= 0 && enemy1.getHPSementara()>0){
                 p += "Kalah \n";
@@ -153,6 +156,7 @@ public class MainController implements Initializable {
                 btnCombo1.setDisable(true);
                 textHistory.setText(p);
                 p="";
+                addHistory("kalah");
             }
             else if(monster1.getHpsementara() > 0 && enemy1.getHPSementara()<=0){
                 System.out.println("Menang");
@@ -164,6 +168,7 @@ public class MainController implements Initializable {
                 btnCombo1.setDisable(true);
                 textHistory.setText(p);
                 p="";
+                addHistory("menang");
             }
 
         }
@@ -604,5 +609,21 @@ public class MainController implements Initializable {
                 break;
         }
         return d;
+    }
+    public void addHistory(String result){
+
+//        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+//        Date date = new Date(timestamp.getTime());
+//        System.out.println(date);
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        Date date = new Date();
+        System.out.println(dateFormat.format(date));
+        HistoryDao hDao = new HistoryDao();
+        History h = new History();
+        h.setId_user(id);
+        h.setTanggal((Date)dateFormat);
+        h.setWinlose(result);
+        hDao.addData(h);
     }
 }
