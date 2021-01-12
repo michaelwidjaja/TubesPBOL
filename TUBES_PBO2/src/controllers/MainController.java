@@ -45,6 +45,7 @@ public class MainController implements Initializable {
     public Button btnCombo1;
     public Button btnCombo2;
     public Button btnCombo3;
+    public Button btnHistory;
     private LoginController main;
     public int id;
     private Monster monster1;
@@ -259,6 +260,7 @@ public class MainController implements Initializable {
                 btnCombo2.setDisable(true);
                 textHistory.setText(p);
                 p="";
+                addHistory("kalah");
             }
             else if(monster2.getHpsementara() > 0 && enemy2.getHPSementara()<=0){
                 System.out.println("Menang");
@@ -270,6 +272,7 @@ public class MainController implements Initializable {
                 btnCombo2.setDisable(true);
                 textHistory.setText(p);
                 p="";
+                addHistory("menang");
             }
 
         }
@@ -296,6 +299,7 @@ public class MainController implements Initializable {
                 btnCombo3.setDisable(true);
                 textHistory.setText(p);
                 p="";
+                addHistory("kalah");
             }
             else if(monster3.getHpsementara() > 0 && enemy3.getHPSementara()<=0){
                 System.out.println("Menang");
@@ -307,6 +311,7 @@ public class MainController implements Initializable {
                 btnCombo3.setDisable(true);
                 textHistory.setText(p);
                 p="";
+                addHistory("menang");
             }
 
         }
@@ -333,6 +338,7 @@ public class MainController implements Initializable {
                 btnCombo1.setDisable(true);
                 textHistory.setText(p);
                 p="";
+                addHistory("kalah");
             }
             else if(monster1.getHpsementara() > 0 && enemy1.getHPSementara()<=0){
                 System.out.println("Menang");
@@ -344,6 +350,7 @@ public class MainController implements Initializable {
                 btnCombo1.setDisable(true);
                 textHistory.setText(p);
                 p="";
+                addHistory("menang");
             }
 
         }
@@ -370,6 +377,7 @@ public class MainController implements Initializable {
                 btnCombo2.setDisable(true);
                 textHistory.setText(p);
                 p="";
+                addHistory("kalah");
             }
             else if(monster2.getHpsementara() > 0 && enemy2.getHPSementara()<=0){
                 System.out.println("Menang");
@@ -381,6 +389,7 @@ public class MainController implements Initializable {
                 btnCombo2.setDisable(true);
                 textHistory.setText(p);
                 p="";
+                addHistory("menang");
             }
 
         }
@@ -407,6 +416,7 @@ public class MainController implements Initializable {
                 btnCombo3.setDisable(true);
                 textHistory.setText(p);
                 p="";
+                addHistory("kalah");
             }
             else if(monster3.getHpsementara() > 0 && enemy3.getHPSementara()<=0){
                 System.out.println("Menang");
@@ -418,6 +428,7 @@ public class MainController implements Initializable {
                 btnCombo3.setDisable(true);
                 textHistory.setText(p);
                 p="";
+                addHistory("menang");
             }
 
         }
@@ -626,5 +637,17 @@ public class MainController implements Initializable {
         h.setWinlose(result);
 
         hDao.addData(h);
+    }
+
+    public void openHistory(ActionEvent actionEvent) throws IOException {
+        Stage new_stage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/showHistory.fxml"));
+        Parent root = loader.load();
+        HistoryController controler = loader.getController();
+        controler.setmain(this);
+        Scene scene1 = new Scene(root);
+        new_stage.setScene(scene1);
+        new_stage.setTitle("History");
+        new_stage.showAndWait();
     }
 }

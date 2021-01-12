@@ -1,10 +1,14 @@
 package DAO;
 
+import Model.Elemen;
 import Model.History;
 import Util.JDBCConnection;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -40,6 +44,30 @@ public class HistoryDao implements daoInterface<History> {
 
     @Override
     public List<History> showData() {
-        return null;
+        ObservableList<History> hList = FXCollections.observableArrayList();
+
+        try {
+            String query = "SELECT u.Nama,h.* FROM history h JOIN user u ON u.idpengguna = h.id_user";
+            PreparedStatement ps;
+            ps = JDBCConnection.getConnection().prepareStatement(query);
+            ResultSet res = ps.executeQuery();
+            while (res.next()){
+                int id = res.getInt("id");
+                String tanggal = res.getString("Tanggal");
+                String result = res.getString("result");
+                String name = res.getString("nama");
+                History h = new History();
+                h.setId(id);
+                h.setTanggal(tanggal);
+                h.setWinlose(result);
+                h.setNameUser(name);
+                hList.add(h);
+            }
+        }
+        catch (SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+
+        return hList;
     }
 }

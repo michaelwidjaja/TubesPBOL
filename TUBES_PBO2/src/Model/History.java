@@ -7,6 +7,7 @@ public class History {
     private String tanggal;
     private int id_user;
     private String winlose;
+    private String nameUser;
 
     public int getId() {
         return id;
@@ -38,6 +39,14 @@ public class History {
 
     public void setWinlose(String winlose) {
         this.winlose = winlose;
+    }
+
+    public String getNameUser() {
+        return nameUser;
+    }
+
+    public void setNameUser(String nameUser) {
+        this.nameUser = nameUser;
     }
 }
 
