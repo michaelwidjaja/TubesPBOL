@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 08, 2021 at 03:56 PM
+-- Generation Time: Jan 12, 2021 at 04:50 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.30
 
@@ -63,7 +63,23 @@ CREATE TABLE `enemymonster` (
 --
 
 INSERT INTO `enemymonster` (`Id`, `Name`, `HP`, `Attack`, `Elements_Id`) VALUES
-(1, 'BOSS', 100, 20, 2);
+(1, 'BOSS', 100, 20, 2),
+(2, 'Raichu', 85, 25, 1),
+(3, 'Pikachu', 98, 20, 3),
+(4, 'kambing', 99, 54, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `history`
+--
+
+CREATE TABLE `history` (
+  `id` int(15) NOT NULL,
+  `tanggal` date NOT NULL,
+  `id_user` int(15) NOT NULL,
+  `win/lose` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -88,7 +104,12 @@ INSERT INTO `monsters` (`Id`, `Name`, `HP`, `Attack`, `Elements_Id`, `User_idpen
 (1, 'Curacas', 95, 5, 1, 1),
 (2, 'Firagas', 80, 10, 2, 1),
 (3, 'Bouldar', 97, 3, 4, 2),
-(4, 'Vipara', 95, 2, 3, 2);
+(4, 'Vipara', 95, 2, 3, 2),
+(5, 'asdasdas', 119, 15, 1, 1),
+(6, 'Naga', 179, 41, 2, 1),
+(7, 'kucing', 78, 30, 6, 1),
+(8, 'Anjing', 95, 20, 4, 1),
+(9, 'Monyet', 92, 12, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -130,6 +151,13 @@ ALTER TABLE `enemymonster`
   ADD KEY `Elements_Id` (`Elements_Id`);
 
 --
+-- Indexes for table `history`
+--
+ALTER TABLE `history`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_id_user` (`id_user`);
+
+--
 -- Indexes for table `monsters`
 --
 ALTER TABLE `monsters`
@@ -154,10 +182,22 @@ ALTER TABLE `elements`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `enemymonster`
+--
+ALTER TABLE `enemymonster`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `history`
+--
+ALTER TABLE `history`
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `monsters`
 --
 ALTER TABLE `monsters`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -174,6 +214,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `enemymonster`
   ADD CONSTRAINT `Elements_Id` FOREIGN KEY (`Elements_Id`) REFERENCES `elements` (`Id`);
+
+--
+-- Constraints for table `history`
+--
+ALTER TABLE `history`
+  ADD CONSTRAINT `fk_id_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`idpengguna`);
 
 --
 -- Constraints for table `monsters`
