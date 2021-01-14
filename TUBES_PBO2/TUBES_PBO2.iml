@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="mysql:mysql-connector-java:5.1.23" level="project" />
+    <orderEntry type="library" name="net.sf.jasperreports:jasperreports:6.15.0" level="project" />
   </component>
 </module>

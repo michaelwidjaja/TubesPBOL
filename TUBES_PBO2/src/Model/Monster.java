@@ -8,6 +8,7 @@ public class Monster {
     private int hp;
     private int hpsementara;
     private int att;
+    private int attfix;
     private int element;
     private int User_idpengguna;
 
@@ -32,7 +33,13 @@ public class Monster {
         this.hpsementara -= n;
     }
 
+    public int getAttfix() {
+        return attfix;
+    }
 
+    public void setAttfix(int attfix) {
+        this.attfix = attfix;
+    }
 
     @Override
     public String toString() {

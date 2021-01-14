@@ -89,7 +89,7 @@ public class MonsterDao implements daoInterface<Monster>{
                 int User_idpengguna =res.getInt("User_idpengguna");
                 Monster m= new Monster();
                 m.setId(id);
-                m.setAtt(att);
+                m.setAttfix(att);
                 m.setName(name);
                 m.setHp(hp);
                 m.setElement(elements_id);

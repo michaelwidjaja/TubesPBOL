@@ -7,85 +7,102 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="mainMonster" prefHeight="600.0" prefWidth="860.0" style="-fx-background-color: linear-gradient(to bottom left, #0093E9 0%, #80D0C7 100%);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
    <children>
       <AnchorPane layoutX="31.0" layoutY="93.0" prefHeight="175.0" prefWidth="234.0" style="-fx-background-color: linear-gradient(to bottom, #ffffff 74%, #e0e0e0 100%); -fx-background-radius: 10;">
          <children>
-            <Label layoutX="28.0" layoutY="34.0" style="-fx-font-family: SF UI Display Regular;" text="Monster">
+            <Label layoutX="28.0" layoutY="22.0" style="-fx-font-family: SF UI Display Regular;" text="Monster">
                <font>
                   <Font name="Courier New" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="27.0" layoutY="74.0" style="-fx-font-family: SF UI Display Regular;" text="Hit Point">
+            <Label layoutX="28.0" layoutY="54.0" style="-fx-font-family: SF UI Display Regular;" text="Damage">
                <font>
                   <Font name="Courier New" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="lblHp1" layoutX="104.0" layoutY="78.0" prefHeight="18.0" prefWidth="39.0" />
-            <ComboBox fx:id="comboMonster1" layoutX="104.0" layoutY="34.0" onAction="#cmbMonster1" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #e1e9f5;" />
-            <Button fx:id="basic1" layoutX="27.0" layoutY="116.0" maxWidth="225.0" mnemonicParsing="false" onAction="#fightAction1" style="-fx-border-radius: 5px; -fx-background-color: #e1e9f5;" stylesheets="@../styling/fullpackstyling.css" text="Basic Attack">
+            <Label fx:id="lblHp1" layoutX="104.0" layoutY="57.0" prefHeight="18.0" prefWidth="39.0" />
+            <ComboBox fx:id="comboMonster1" layoutX="104.0" layoutY="22.0" onAction="#cmbMonster1" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #e1e9f5;" />
+            <Button fx:id="basic1" layoutX="28.0" layoutY="121.0" maxWidth="225.0" mnemonicParsing="false" onAction="#fightAction1" style="-fx-border-radius: 5px; -fx-background-color: #e1e9f5;" stylesheets="@../styling/fullpackstyling.css" text="Basic Attack">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="btnCombo1" layoutX="140.0" layoutY="116.0" maxWidth="225.0" mnemonicParsing="false" onAction="#comboAttack1" style="-fx-border-radius: 5px; -fx-background-color: #e1e9f5;" stylesheets="@../styling/fullpackstyling.css" text="Combo">
+            <Button fx:id="btnCombo1" layoutX="143.0" layoutY="121.0" maxWidth="225.0" mnemonicParsing="false" onAction="#comboAttack1" style="-fx-border-radius: 5px; -fx-background-color: #e1e9f5;" stylesheets="@../styling/fullpackstyling.css" text="Combo">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>
             </Button>
+            <Label layoutX="28.0" layoutY="88.0" style="-fx-font-family: SF UI Display Regular;" text="Health">
+               <font>
+                  <Font name="Courier New" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblHealth1" layoutX="104.0" layoutY="91.0" prefHeight="18.0" prefWidth="39.0" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="316.0" layoutY="93.0" prefHeight="175.0" prefWidth="234.0" style="-fx-background-color: linear-gradient(to bottom, #ffffff 74%, #e0e0e0 100%); -fx-background-radius: 10;">
          <children>
-            <Label layoutX="28.0" layoutY="34.0" style="-fx-font-family: SF UI Display Regular;" text="Monster">
+            <Label layoutX="28.0" layoutY="22.0" style="-fx-font-family: SF UI Display Regular;" text="Monster">
                <font>
                   <Font name="Courier New" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="27.0" layoutY="74.0" style="-fx-font-family: SF UI Display Regular;" text="Hit Point">
+            <Label layoutX="28.0" layoutY="54.0" style="-fx-font-family: SF UI Display Regular;" text="Damage">
                <font>
                   <Font name="Courier New" size="16.0" />
                </font>
             </Label>
-            <ComboBox fx:id="comboMonster2" layoutX="104.0" layoutY="34.0" onAction="#cmbMonster2" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #e1e9f5;" />
-            <Label fx:id="lblHp2" layoutX="104.0" layoutY="78.0" prefHeight="18.0" prefWidth="32.0" />
-            <Button fx:id="basic2" layoutX="27.0" layoutY="116.0" maxWidth="225.0" mnemonicParsing="false" onAction="#fightAction2" style="-fx-border-radius: 5px; -fx-background-color: #e1e9f5;" stylesheets="@../styling/fullpackstyling.css" text="Basic Attack">
+            <ComboBox fx:id="comboMonster2" layoutX="104.0" layoutY="22.0" onAction="#cmbMonster2" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #e1e9f5;" />
+            <Label fx:id="lblHp2" layoutX="104.0" layoutY="57.0" prefHeight="18.0" prefWidth="32.0" />
+            <Button fx:id="basic2" layoutX="27.0" layoutY="121.0" maxWidth="225.0" mnemonicParsing="false" onAction="#fightAction2" style="-fx-border-radius: 5px; -fx-background-color: #e1e9f5;" stylesheets="@../styling/fullpackstyling.css" text="Basic Attack">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="btnCombo2" layoutX="140.0" layoutY="116.0" maxWidth="225.0" mnemonicParsing="false" onAction="#comboAttack2" style="-fx-border-radius: 5px; -fx-background-color: #e1e9f5;" stylesheets="@../styling/fullpackstyling.css" text="Combo ">
+            <Button fx:id="btnCombo2" layoutX="140.0" layoutY="121.0" maxWidth="225.0" mnemonicParsing="false" onAction="#comboAttack2" style="-fx-border-radius: 5px; -fx-background-color: #e1e9f5;" stylesheets="@../styling/fullpackstyling.css" text="Combo ">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>
             </Button>
+            <Label layoutX="28.0" layoutY="88.0" style="-fx-font-family: SF UI Display Regular;" text="Health">
+               <font>
+                  <Font name="Courier New" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblHealth2" layoutX="104.0" layoutY="91.0" prefHeight="18.0" prefWidth="39.0" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="597.0" layoutY="93.0" prefHeight="175.0" prefWidth="234.0" style="-fx-background-color: linear-gradient(to bottom, #ffffff 74%, #e0e0e0 100%); -fx-background-radius: 10;">
          <children>
-            <Label layoutX="28.0" layoutY="34.0" style="-fx-font-family: SF UI Display Regular;" text="Monster">
+            <Label layoutX="28.0" layoutY="22.0" style="-fx-font-family: SF UI Display Regular;" text="Monster">
                <font>
                   <Font name="Courier New" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="27.0" layoutY="74.0" style="-fx-font-family: SF UI Display Regular;" text="Hit Point">
+            <Label layoutX="27.0" layoutY="54.0" style="-fx-font-family: SF UI Display Regular;" text="Damage">
                <font>
                   <Font name="Courier New" size="16.0" />
                </font>
             </Label>
-            <ComboBox fx:id="comboMonster3" layoutX="104.0" layoutY="34.0" onAction="#cmbMonster3" prefWidth="103.0" style="-fx-background-color: #e1e9f5;" />
-            <Label fx:id="lblHp3" layoutX="104.0" layoutY="78.0" prefHeight="18.0" prefWidth="32.0" />
-            <Button fx:id="basic3" layoutX="27.0" layoutY="116.0" maxWidth="225.0" mnemonicParsing="false" onAction="#fightAction3" style="-fx-border-radius: 5px; -fx-background-color: #e1e9f5;" stylesheets="@../styling/fullpackstyling.css" text="Basic Attack">
+            <ComboBox fx:id="comboMonster3" layoutX="104.0" layoutY="22.0" onAction="#cmbMonster3" prefWidth="103.0" style="-fx-background-color: #e1e9f5;" />
+            <Label fx:id="lblHp3" layoutX="104.0" layoutY="57.0" prefHeight="18.0" prefWidth="32.0" />
+            <Button fx:id="basic3" layoutX="27.0" layoutY="121.0" maxWidth="225.0" mnemonicParsing="false" onAction="#fightAction3" style="-fx-border-radius: 5px; -fx-background-color: #e1e9f5;" stylesheets="@../styling/fullpackstyling.css" text="Basic Attack">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>
             </Button>
-            <Button fx:id="btnCombo3" layoutX="140.0" layoutY="116.0" maxWidth="225.0" mnemonicParsing="false" onAction="#comboAttack3" style="-fx-border-radius: 5px; -fx-background-color: #e1e9f5;" stylesheets="@../styling/fullpackstyling.css" text="Combo">
+            <Button fx:id="btnCombo3" layoutX="140.0" layoutY="121.0" maxWidth="225.0" mnemonicParsing="false" onAction="#comboAttack3" style="-fx-border-radius: 5px; -fx-background-color: #e1e9f5;" stylesheets="@../styling/fullpackstyling.css" text="Combo">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>
             </Button>
+            <Label layoutX="28.0" layoutY="88.0" style="-fx-font-family: SF UI Display Regular;" text="Health">
+               <font>
+                  <Font name="Courier New" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblHealth3" layoutX="104.0" layoutY="91.0" prefHeight="18.0" prefWidth="39.0" />
          </children>
       </AnchorPane>
       <Label layoutX="106.0" layoutY="24.0" style="-fx-font-family: SF UI Display Regular; -fx-font-style: SF UI Display Regular;" text="Monster 1">
