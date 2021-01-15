@@ -39,7 +39,7 @@ public class HistoryController {
         Map param = new HashMap();
 
         try{
-            jp = JasperFillManager.fillReport("./Report/",param,JDBCConnection.getConnection());
+            jp = JasperFillManager.fillReport("./Report/TubesPBO.jasper",param,JDBCConnection.getConnection());
             JasperViewer viewer= new JasperViewer(jp,false);
             viewer.setTitle("History");
             viewer.setVisible(true);

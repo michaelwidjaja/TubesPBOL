@@ -9,37 +9,37 @@
 
 <AnchorPane id="AnchorPane" prefHeight="494.0" prefWidth="696.0" style="-fx-background-color: linear-gradient(to bottom left, #0093E9 0%, #80D0C7 100%);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
     <children>
-      <Label alignment="CENTER" layoutX="227.0" layoutY="49.0" prefHeight="50.0" prefWidth="242.0" style="-fx-font-family: SF UI Display Regular;" text="Welcome back," textFill="#e1e9f5e5" textOverrun="CENTER_ELLIPSIS">
-         <font>
-            <Font name="SimHei" size="30.0" />
-         </font>
-      </Label>
-          <TextField fx:id="txtUsername" layoutX="214.0" layoutY="149.0" prefHeight="34.0" prefWidth="275.0" promptText="Username" style="-fx-font-family: SF UI Display;">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
-          <PasswordField fx:id="txtPassword" layoutX="214.0" layoutY="195.0" prefHeight="34.0" prefWidth="275.0" promptText="Password" style="-fx-font-family: SF UI Display;">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </PasswordField>
-          <Button fx:id="signin" layoutX="214.0" layoutY="261.0" mnemonicParsing="false" onAction="#btnSignin" prefHeight="34.0" prefWidth="275.0" style="-fx-font-family: SF UI Display Regular;" stylesheets="@../styling/fullpackstyling.css" text="Sign in" />
-          <Button layoutX="330.0" layoutY="299.0" mnemonicParsing="false" onAction="#btnSignup" prefHeight="34.0" prefWidth="60.0" style="-fx-background-color: SF UI Display Regular;" stylesheets="@../styling/fullpackstyling.css" text="Sign up">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-          <Label alignment="CENTER" layoutX="311.0" layoutY="305.0" prefHeight="23.0" prefWidth="31.0" style="-fx-background-color: transparent;" text="Or" />
-          <Label fx:id="lblErrors" alignment="CENTER" layoutX="214.0" layoutY="238.0" prefHeight="16.0" prefWidth="275.0" style="-fx-background-color: transparent;">
-              <font>
-                  <Font name="Segoe UI" size="10.0" />
-              </font>
-          </Label>
-      <Label alignment="CENTER" layoutX="256.0" layoutY="99.0" prefHeight="50.0" prefWidth="184.0" style="-fx-font-family: SF UI Display Regular;" text="Sign in to continue" textAlignment="CENTER" textFill="#e1e9f5e5" textOverrun="CENTER_ELLIPSIS">
-         <font>
-            <Font name="Times New Roman" size="18.0" />
-         </font>
-      </Label>
+        <Label alignment="CENTER" layoutX="227.0" layoutY="49.0" prefHeight="50.0" prefWidth="242.0" style="-fx-font-family: SF UI Display Regular;" text="Welcome back," textFill="#e1e9f5e5" textOverrun="CENTER_ELLIPSIS">
+            <font>
+                <Font name="SimHei" size="30.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtUsername" layoutX="214.0" layoutY="149.0" prefHeight="34.0" prefWidth="275.0" promptText="Username" style="-fx-font-family: SF UI Display;">
+            <font>
+                <Font name="System Italic" size="12.0" />
+            </font>
+        </TextField>
+        <PasswordField fx:id="txtPassword" layoutX="214.0" layoutY="195.0" prefHeight="34.0" prefWidth="275.0" promptText="Password" style="-fx-font-family: SF UI Display;">
+            <font>
+                <Font name="System Italic" size="12.0" />
+            </font>
+        </PasswordField>
+        <Button fx:id="signin" layoutX="214.0" layoutY="261.0" mnemonicParsing="false" onAction="#btnSignin" prefHeight="34.0" prefWidth="275.0" style="-fx-font-family: SF UI Display Regular;" stylesheets="@../styling/fullpackstyling.css" text="Sign in" />
+        <Button layoutX="330.0" layoutY="299.0" mnemonicParsing="false" onAction="#btnSignup" prefHeight="34.0" prefWidth="60.0" style="-fx-background-color: SF UI Display Regular;" stylesheets="@../styling/fullpackstyling.css" text="Sign up">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Button>
+        <Label alignment="CENTER" layoutX="311.0" layoutY="305.0" prefHeight="23.0" prefWidth="31.0" style="-fx-background-color: transparent;" text="Or" />
+        <Label fx:id="lblErrors" alignment="CENTER" layoutX="214.0" layoutY="238.0" prefHeight="16.0" prefWidth="275.0" style="-fx-background-color: transparent;">
+            <font>
+                <Font name="Segoe UI" size="10.0" />
+            </font>
+        </Label>
+        <Label alignment="CENTER" layoutX="256.0" layoutY="99.0" prefHeight="50.0" prefWidth="184.0" style="-fx-font-family: SF UI Display Regular;" text="Sign in to continue" textAlignment="CENTER" textFill="#e1e9f5e5" textOverrun="CENTER_ELLIPSIS">
+            <font>
+                <Font name="Times New Roman" size="18.0" />
+            </font>
+        </Label>
     </children>
 </AnchorPane>
