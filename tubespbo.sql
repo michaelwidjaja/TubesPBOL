@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2021 at 04:50 AM
+-- Generation Time: Jan 16, 2021 at 06:29 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.30
 
@@ -65,8 +65,7 @@ CREATE TABLE `enemymonster` (
 INSERT INTO `enemymonster` (`Id`, `Name`, `HP`, `Attack`, `Elements_Id`) VALUES
 (1, 'BOSS', 100, 20, 2),
 (2, 'Raichu', 85, 25, 1),
-(3, 'Pikachu', 98, 20, 3),
-(4, 'kambing', 99, 54, 1);
+(3, 'Pikachu', 98, 20, 3);
 
 -- --------------------------------------------------------
 
@@ -105,11 +104,9 @@ INSERT INTO `monsters` (`Id`, `Name`, `HP`, `Attack`, `Elements_Id`, `User_idpen
 (2, 'Firagas', 80, 10, 2, 1),
 (3, 'Bouldar', 97, 3, 4, 2),
 (4, 'Vipara', 95, 2, 3, 2),
-(5, 'asdasdas', 119, 15, 1, 1),
-(6, 'Naga', 179, 41, 2, 1),
-(7, 'kucing', 78, 30, 6, 1),
-(8, 'Anjing', 95, 20, 4, 1),
-(9, 'Monyet', 92, 12, 4, 1);
+(5, 'Naga', 179, 41, 2, 1),
+(6, 'kucing', 78, 30, 6, 1);
+
 
 -- --------------------------------------------------------
 
@@ -197,13 +194,13 @@ ALTER TABLE `history`
 -- AUTO_INCREMENT for table `monsters`
 --
 ALTER TABLE `monsters`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `idpengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `idpengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables
